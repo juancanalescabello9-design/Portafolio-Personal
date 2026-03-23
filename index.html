@@ -392,7 +392,6 @@ footer {
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-name">Juan Canales</div>
   <ul class="nav-links">
@@ -404,7 +403,6 @@ footer {
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-bg-text">DATA</div>
   <div class="hero-eyebrow">Data Analyst · Desarrollador SaaS · en camino a Data Engineer</div>
@@ -433,7 +431,6 @@ footer {
   </div>
 </section>
 
-<!-- ABOUT / PATH -->
 <section class="section alt" id="about">
   <div class="wrap">
     <div class="label reveal">Sobre mí</div>
@@ -454,7 +451,6 @@ footer {
   </div>
 </section>
 
-<!-- STACK -->
 <section class="section" id="stack">
   <div class="wrap">
     <div class="label reveal">Herramientas</div>
@@ -514,7 +510,6 @@ footer {
   </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section class="section alt" id="experience">
   <div class="wrap">
     <div class="label reveal">Trayectoria</div>
@@ -586,7 +581,6 @@ footer {
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section class="section" id="projects">
   <div class="wrap">
     <div class="label reveal">Trabajo real</div>
@@ -676,7 +670,6 @@ footer {
   </div>
 </section>
 
-<!-- CERTIFICATIONS -->
 <section class="section alt" id="certifications">
   <div class="wrap">
     <div class="label reveal">Formación continua</div>
@@ -693,7 +686,6 @@ footer {
   </div>
 </section>
 
-<!-- CONTACT -->
 <section class="section" id="contact">
   <div class="wrap">
     <div class="label reveal">Hablemos</div>
@@ -705,9 +697,9 @@ footer {
         <span class="citem-val">juancanalescabello9-design</span>
         <span class="citem-arrow">→</span>
       </a>
-      <a href="/cdn-cgi/l/email-protection#e68c938788858788878a8395858784838a8a89dfa6818b878f8ac885898b" class="citem">
+      <a href="mailto:juancanalescabello9@gmail.com" class="citem">
         <span class="citem-label">Email</span>
-        <span class="citem-val"><span class="__cf_email__" data-cfemail="167c637778757778777a7365757774737a7a792f56717b777f7a3875797b">[email&#160;protected]</span></span>
+        <span class="citem-val">juancanalescabello9@gmail.com</span>
         <span class="citem-arrow">→</span>
       </a>
       <a href="tel:+56966203717" class="citem">
@@ -734,6 +726,24 @@ footer {
   <span>Data Analyst · SaaS Developer → Data Engineer</span>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+  // Configuramos el observador para las animaciones de scroll
   const obs = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
+    entries.forEach((e) => {
+      // Si el elemento entra en la pantalla
+      if (e.isIntersecting) {
+        e.target.classList.add('in'); // Agrega la clase que activa la animación
+        obs.unobserve(e.target); // Deja de observar para que se anime solo una vez
+      }
+    });
+  }, {
+    threshold: 0.15 // El elemento debe asomarse un 15% para que se active
+  });
+
+  // Buscamos todos los elementos con la clase .reveal y los observamos
+  document.querySelectorAll('.reveal').forEach((el) => {
+    obs.observe(el);
+  });
+</script>
+</body>
+</html>
