@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juan Canales — Data Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Literata:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --ink: #181818;
+  --ink-mid: #555;
+  --ink-light: #999;
+  --paper: #f5f3ee;
+  --paper-warm: #ede9e1;
+  --rule: #ddd9d2;
+  --teal: #0d7c66;
+  --teal-light: #e6f4f1;
+  --amber: #c97b2a;
+  --amber-light: #fdf3e7;
+  --white: #fff;
+}
+
+body {
+  font-family: 'Literata', Georgia, serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.65;
+}
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 99;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px; height: 60px;
+  background: rgba(245,243,238,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav-name {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700; font-size: 0.95rem;
+  letter-spacing: 0.02em; color: var(--ink);
+}
+.nav-links { display: flex; gap: 28px; list-style: none; }
+.nav-links a {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ink-mid); text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--teal); }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 140px 80px 80px;
+  position: relative; overflow: hidden;
+  background: var(--ink);
+}
+.hero-bg-text {
+  position: absolute;
+  top: 50%; left: -20px;
+  transform: translateY(-50%);
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(120px, 18vw, 220px);
+  font-weight: 800;
+  color: rgba(255,255,255,0.025);
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.04em;
+}
+.hero-eyebrow {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+  opacity: 0; animation: up 0.8s 0.1s ease forwards;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 28px; height: 1px; background: var(--teal);
+}
+h1.hero-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(3rem, 6.5vw, 6rem);
+  font-weight: 800; line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  margin-bottom: 32px;
+  opacity: 0; animation: up 0.8s 0.2s ease forwards;
+}
+h1.hero-title em {
+  font-style: italic;
+  font-family: 'Literata', serif;
+  font-weight: 300;
+  color: rgba(255,255,255,0.45);
+}
+.hero-bio {
+  max-width: 560px;
+  font-size: 1.05rem; font-weight: 300;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.8;
+  margin-bottom: 48px;
+  opacity: 0; animation: up 0.8s 0.35s ease forwards;
+}
+.hero-bio strong { color: rgba(255,255,255,0.9); font-weight: 500; }
+.hero-bottom {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  flex-wrap: wrap; gap: 32px;
+  opacity: 0; animation: up 0.8s 0.5s ease forwards;
+}
+.hero-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip {
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 100px;
+  padding: 7px 16px;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.05em;
+  color: rgba(255,255,255,0.7);
+}
+.chip.highlight {
+  background: rgba(13,124,102,0.25);
+  border-color: rgba(13,124,102,0.5);
+  color: #5dd6be;
+}
+.hero-scroll {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
+.hero-scroll::after {
+  content: '';
+  display: block; width: 1px; height: 40px;
+  background: rgba(255,255,255,0.2);
+}
+
+/* ─── SECTIONS ─── */
+.section { padding: 96px 0; }
+.section.alt { background: var(--white); }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 48px; }
+
+.label {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink-light);
+  margin-bottom: 8px;
+  display: flex; align-items: center; gap: 10px;
+}
+.label::before { content: ''; width: 20px; height: 1px; background: var(--ink-light); }
+
+h2.stitle {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 800; letter-spacing: -0.02em;
+  color: var(--ink); line-height: 1.1;
+  margin-bottom: 14px;
+}
+.stitle-note {
+  font-size: 1rem; font-weight: 300;
+  color: var(--ink-mid); line-height: 1.7;
+  max-width: 500px; margin-bottom: 56px;
+}
+
+/* ─── ABOUT / PATH ─── */
+.path-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0; border: 1px solid var(--rule); border-radius: 16px;
+  overflow: hidden;
+}
+.path-col { padding: 40px; }
+.path-col:first-child { border-right: 1px solid var(--rule); }
+.path-col-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.path-col:first-child .path-col-label { color: var(--teal); }
+.path-col:last-child .path-col-label { color: var(--amber); }
+.path-col p { font-size: 0.95rem; color: var(--ink-mid); line-height: 1.75; }
+.path-col p + p { margin-top: 12px; }
+.path-col strong { color: var(--ink); font-weight: 500; }
+
+/* ─── STACK ─── */
+.stack-cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; }
+.stack-block {
+  background: var(--white);
+  padding: 32px 28px;
+  border: 1px solid var(--rule);
+  transition: border-color 0.2s, transform 0.2s;
+}
+.stack-block:hover { border-color: var(--teal); transform: translateY(-2px); }
+.stack-block-icon { font-size: 1.4rem; margin-bottom: 14px; }
+.stack-block-cat {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-light); margin-bottom: 6px;
+}
+.stack-block-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem; font-weight: 700;
+  color: var(--ink); margin-bottom: 10px;
+}
+.stack-block-desc { font-size: 0.85rem; color: var(--ink-mid); line-height: 1.6; }
+.stack-level {
+  display: flex; align-items: center; gap: 4px; margin-top: 14px;
+}
+.dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--rule);
+  transition: background 0.3s;
+}
+.dot.on { background: var(--teal); }
+
+/* ─── EXPERIENCE ─── */
+.xp-list { display: flex; flex-direction: column; gap: 0; }
+.xp-item {
+  display: grid; grid-template-columns: 160px 1fr;
+  gap: 32px; padding: 40px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.xp-item:first-child { border-top: 1px solid var(--rule); }
+.xp-meta { padding-top: 4px; }
+.xp-period {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.06em; color: var(--ink-light);
+  margin-bottom: 6px;
+}
+.xp-company {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.82rem; font-weight: 700;
+  color: var(--ink); margin-bottom: 4px;
+}
+.xp-sector {
+  font-size: 0.75rem; color: var(--ink-light);
+  font-style: italic;
+}
+.xp-role {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.05rem; font-weight: 700;
+  color: var(--ink); margin-bottom: 12px;
+}
+.xp-body { font-size: 0.92rem; color: var(--ink-mid); line-height: 1.75; margin-bottom: 16px; }
+.xp-body + .xp-body { margin-top: -8px; }
+.xp-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+.xtag {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 4px 12px; border-radius: 4px;
+  background: var(--paper-warm);
+  color: var(--ink-mid);
+}
+.xtag.teal { background: var(--teal-light); color: var(--teal); }
+
+/* ─── PROJECTS ─── */
+.projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.pcard {
+  border: 1px solid var(--rule); border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow 0.25s, transform 0.2s;
+}
+.pcard:hover { box-shadow: 0 8px 40px rgba(0,0,0,0.08); transform: translateY(-3px); }
+.pcard-top {
+  padding: 28px 28px 24px;
+  border-bottom: 1px solid var(--rule);
+  background: var(--white);
+}
+.pcard-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.14em; color: var(--ink-light);
+  margin-bottom: 10px;
+}
+.pcard-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem; font-weight: 700;
+  color: var(--ink); margin-bottom: 6px;
+}
+.pcard-sub { font-size: 0.8rem; color: var(--ink-light); font-style: italic; }
+.pcard-body { padding: 20px 28px 24px; background: var(--paper); }
+.pcard-desc { font-size: 0.88rem; color: var(--ink-mid); line-height: 1.7; margin-bottom: 14px; }
+.pcard-impact {
+  font-size: 0.82rem; color: var(--teal);
+  font-weight: 500; display: flex; gap: 8px; align-items: flex-start;
+  line-height: 1.5;
+}
+.pcard-impact::before { content: '↳'; flex-shrink: 0; }
+.conf-note {
+  margin-bottom: 32px; padding: 16px 20px;
+  background: var(--amber-light);
+  border-left: 3px solid var(--amber);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.85rem; color: var(--ink-mid); line-height: 1.6;
+}
+.conf-note strong { color: var(--amber); }
+
+/* ─── CERTS ─── */
+.certs-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+.cert {
+  background: var(--white);
+  border: 1px solid var(--rule); border-radius: 10px;
+  padding: 18px 20px;
+  display: flex; flex-direction: column; gap: 4px;
+  transition: border-color 0.2s;
+}
+.cert:hover { border-color: var(--teal); }
+.cert-inst {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink-light);
+}
+.cert-name { font-size: 0.88rem; font-weight: 400; color: var(--ink); line-height: 1.4; }
+
+/* ─── CONTACT ─── */
+#contact { background: var(--ink); }
+#contact .label { color: rgba(255,255,255,0.3); }
+#contact .label::before { background: rgba(255,255,255,0.3); }
+#contact h2.stitle { color: var(--white); }
+#contact .stitle-note { color: rgba(255,255,255,0.5); }
+.contact-row { display: flex; flex-direction: column; gap: 2px; }
+.citem {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 22px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+  text-decoration: none;
+  transition: padding-left 0.2s;
+}
+.citem:hover { padding-left: 8px; }
+.citem-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  width: 120px; flex-shrink: 0;
+}
+.citem-val {
+  font-size: 1rem; font-weight: 300;
+  color: rgba(255,255,255,0.85);
+  flex: 1;
+}
+.citem-arrow { color: rgba(255,255,255,0.2); font-size: 1.1rem; }
+.citem:hover .citem-arrow { color: var(--teal); }
+
+/* ─── FOOTER ─── */
+footer {
+  background: #0d0d0d;
+  padding: 24px 48px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.72rem; letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.2);
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 860px) {
+  .hero { padding: 120px 32px 64px; }
+  .path-grid, .stack-cols, .projects-grid, .certs-grid { grid-template-columns: 1fr; }
+  .path-col:first-child { border-right: none; border-bottom: 1px solid var(--rule); }
+  .xp-item { grid-template-columns: 1fr; gap: 6px; }
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .wrap { padding: 0 24px; }
+  footer { flex-direction: column; gap: 8px; }
+  .contact-row .citem-label { width: 90px; font-size: 0.62rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-name">Juan Canales</div>
+  <ul class="nav-links">
+    <li><a href="#stack">Stack</a></li>
+    <li><a href="#experience">Experiencia</a></li>
+    <li><a href="#projects">Proyectos</a></li>
+    <li><a href="#certifications">Formación</a></li>
+    <li><a href="#contact">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-text">DATA</div>
+  <div class="hero-eyebrow">Data Analyst · en camino a Data Engineer</div>
+  <h1 class="hero-title">Juan Canales<br><em>Cabello</em></h1>
+  <p class="hero-bio">
+    Ingeniero Civil Industrial con experiencia real convirtiendo datos industriales en <strong>decisiones concretas</strong>. 
+    He trabajado en minería de cobre y agroindustria, construyendo pipelines, automatizando reportes y 
+    visualizando KPIs que terminaron en reuniones de superintendencia. 
+    Hoy estoy en camino a <strong>Data Engineering</strong>.
+  </p>
+  <div class="hero-bottom">
+    <div class="hero-chips">
+      <span class="chip highlight">Python</span>
+      <span class="chip highlight">SQL</span>
+      <span class="chip highlight">Power BI</span>
+      <span class="chip">Power Query</span>
+      <span class="chip">SAP HANA</span>
+      <span class="chip">Excel Avanzado</span>
+      <span class="chip">DAX</span>
+      <span class="chip">Automatización</span>
+    </div>
+    <a href="#stack" class="hero-scroll">Scroll</a>
+  </div>
+</section>
+
+<!-- ABOUT / PATH -->
+<section class="section alt" id="about">
+  <div class="wrap">
+    <div class="label reveal">Sobre mí</div>
+    <h2 class="stitle reveal">Analista de datos<br>con mentalidad de ingeniero</h2>
+    <p class="stitle-note reveal">No vengo del mundo IT clásico, vengo de la industria. Eso cambia cómo pienso los datos.</p>
+    <div class="path-grid reveal">
+      <div class="path-col">
+        <div class="path-col-label">Dónde estoy hoy</div>
+        <p>Trabajo con datos operacionales reales: producción minera, estados de pago, control de calidad. Construyo modelos en Power BI, transformo fuentes con Power Query y SQL, y automatizo flujos con Python.</p>
+        <p>Mi formación como <strong>Ingeniero Civil Industrial</strong> me da un contexto que los analistas puramente técnicos a veces no tienen: entiendo el negocio detrás del dato.</p>
+      </div>
+      <div class="path-col">
+        <div class="path-col-label">Hacia dónde voy</div>
+        <p>Estoy construyendo las bases para moverme a <strong>Data Engineering</strong>: pipelines de datos, arquitecturas en la nube, modelado dimensional y automatización a escala.</p>
+        <p>Tengo certificaciones en transformación digital (MIT), IA aplicada (Google, Microsoft) y metodologías ágiles. El camino está trazado y ya estoy en él.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section class="section" id="stack">
+  <div class="wrap">
+    <div class="label reveal">Herramientas</div>
+    <h2 class="stitle reveal">Stack técnico</h2>
+    <p class="stitle-note reveal">Lo que uso en el trabajo real, no solo en cursos.</p>
+    <div class="stack-cols">
+
+      <div class="stack-block reveal">
+        <div class="stack-block-icon">🐍</div>
+        <div class="stack-block-cat">Lenguajes</div>
+        <div class="stack-block-name">Python</div>
+        <div class="stack-block-desc">Automatización de procesos (RPA), análisis de datos con pandas, scripts de transformación y alertas.</div>
+        <div class="stack-level"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div>
+      </div>
+
+      <div class="stack-block reveal">
+        <div class="stack-block-icon">🗄️</div>
+        <div class="stack-block-cat">Lenguajes</div>
+        <div class="stack-block-name">SQL</div>
+        <div class="stack-block-desc">Consultas de extracción, joins, agregaciones y preparación de fuentes para modelos analíticos.</div>
+        <div class="stack-level"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div>
+      </div>
+
+      <div class="stack-block reveal">
+        <div class="stack-block-icon">📊</div>
+        <div class="stack-block-cat">Visualización</div>
+        <div class="stack-block-name">Power BI</div>
+        <div class="stack-block-desc">Dashboards interactivos, modelado dimensional, DAX para KPIs, publicación en Power BI Service.</div>
+        <div class="stack-level"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div>
+      </div>
+
+      <div class="stack-block reveal">
+        <div class="stack-block-icon">🔄</div>
+        <div class="stack-block-cat">ETL / Transformación</div>
+        <div class="stack-block-name">Power Query (M)</div>
+        <div class="stack-block-desc">Limpieza y transformación de datos, conexión a múltiples fuentes, automatización de flujos ETL.</div>
+        <div class="stack-level"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div>
+      </div>
+
+      <div class="stack-block reveal">
+        <div class="stack-block-icon">🏭</div>
+        <div class="stack-block-cat">ERP</div>
+        <div class="stack-block-name">SAP HANA</div>
+        <div class="stack-block-desc">Módulo PP para seguimiento de producción, extracción de datos operacionales y KPIs industriales.</div>
+        <div class="stack-level"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div>
+      </div>
+
+      <div class="stack-block reveal">
+        <div class="stack-block-icon">📋</div>
+        <div class="stack-block-cat">Productividad</div>
+        <div class="stack-block-name">Excel Avanzado</div>
+        <div class="stack-block-desc">Power Pivot, tablas dinámicas, modelos de datos y reportes automatizados para entornos industriales.</div>
+        <div class="stack-level"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section alt" id="experience">
+  <div class="wrap">
+    <div class="label reveal">Trayectoria</div>
+    <h2 class="stitle reveal">Experiencia</h2>
+    <p class="stitle-note reveal">Proyectos de datos en industrias donde los números tienen peso real.</p>
+    <div class="xp-list">
+
+      <div class="xp-item reveal">
+        <div class="xp-meta">
+          <div class="xp-period">2025 — Hoy</div>
+          <div class="xp-company">Gardilcic</div>
+          <div class="xp-sector">Minería · El Teniente</div>
+        </div>
+        <div>
+          <div class="xp-role">Ingeniero Oficina Técnica</div>
+          <p class="xp-body">Construyo y mantengo la reportabilidad gerencial para un contrato de desarrollo minero de cientos de millones de pesos. Eso incluye control de estados de pago, proyecciones de rendimiento (PF) y Planes de Actividades Mensuales, todo consolidado en dashboards que se presentan cada semana ante superintendencia.</p>
+          <p class="xp-body">El trabajo no es solo hacer el gráfico bonito: es entender qué dato importa, de dónde viene y cómo transformarlo en algo que alguien puede actuar.</p>
+          <div class="xp-tags">
+            <span class="xtag teal">Power BI</span>
+            <span class="xtag teal">Excel Avanzado</span>
+            <span class="xtag">Control de Gestión</span>
+            <span class="xtag">KPIs Operacionales</span>
+            <span class="xtag">Reportabilidad Gerencial</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="xp-item reveal">
+        <div class="xp-meta">
+          <div class="xp-period">2024 — 2025</div>
+          <div class="xp-company">Gardilcic</div>
+          <div class="xp-sector">Memoria de Título</div>
+        </div>
+        <div>
+          <div class="xp-role">Ingeniero en Formación — Datos y Calidad</div>
+          <p class="xp-body">Diseñé e implementé dashboards en Power BI para monitorear indicadores de calidad en faena minera. También desarrollé una herramienta web en HTML/JS para calcular consumos de hormigón, que permitió detectar y corregir sobreconsumos de hasta un 200%.</p>
+          <p class="xp-body">Primer contacto real con el ciclo completo: tomar datos crudos de terreno, transformarlos y entregarlos como información útil.</p>
+          <div class="xp-tags">
+            <span class="xtag teal">Power BI</span>
+            <span class="xtag teal">DAX</span>
+            <span class="xtag teal">Power Query</span>
+            <span class="xtag">HTML / JavaScript</span>
+            <span class="xtag">Control de Calidad</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="xp-item reveal">
+        <div class="xp-meta">
+          <div class="xp-period">2024</div>
+          <div class="xp-company">Agrosuper</div>
+          <div class="xp-sector">Agroindustria</div>
+        </div>
+        <div>
+          <div class="xp-role">Práctica — Ingeniería de Procesos</div>
+          <p class="xp-body">Desarrollé una solución de automatización en Python que leía bases de datos de producción desde SAP y detectaba productos congelados con riesgo de vencer antes del despacho. El sistema corría automáticamente y generaba alertas, evitando pérdidas en la cadena de frío.</p>
+          <p class="xp-body">También llevé el seguimiento de KPIs productivos con Excel Avanzado y SAP módulo PP, apoyando decisiones de planta en tiempo real.</p>
+          <div class="xp-tags">
+            <span class="xtag teal">Python</span>
+            <span class="xtag teal">SAP HANA (PP)</span>
+            <span class="xtag teal">Excel Avanzado</span>
+            <span class="xtag">RPA</span>
+            <span class="xtag">KPIs de Producción</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <div class="wrap">
+    <div class="label reveal">Trabajo real</div>
+    <h2 class="stitle reveal">Proyectos destacados</h2>
+    <p class="stitle-note reveal">Soluciones construidas en entornos industriales reales, no en datasets de Kaggle.</p>
+    <div class="conf-note reveal">
+      <strong>Nota de confidencialidad:</strong> Los proyectos descritos aquí fueron desarrollados en empresas. No puedo compartir los archivos originales, pero puedo hablar en detalle sobre metodología, decisiones técnicas y resultados en una entrevista.
+    </div>
+    <div class="projects-grid">
+
+      <div class="pcard reveal">
+        <div class="pcard-top">
+          <div class="pcard-num">01 · Gardilcic / El Teniente</div>
+          <div class="pcard-title">Dashboard de KPIs Gerenciales</div>
+          <div class="pcard-sub">Power BI · DAX · Power Query · Excel</div>
+        </div>
+        <div class="pcard-body">
+          <p class="pcard-desc">Modelo de datos que integra fuentes de distintos sistemas (planillas de terreno, SAP, Excel) y las expone como un único dashboard interactivo para reuniones semanales de superintendencia. Incluye seguimiento de avance físico, estados de pago y proyecciones PF.</p>
+          <div class="pcard-impact">Eliminó reportes manuales y consolidó la toma de decisiones de avance en un solo lugar.</div>
+        </div>
+      </div>
+
+      <div class="pcard reveal">
+        <div class="pcard-top">
+          <div class="pcard-num">02 · Gardilcic / Memoria de Título</div>
+          <div class="pcard-title">Monitor de Calidad en Faena</div>
+          <div class="pcard-sub">Power BI · DAX · Power Query</div>
+        </div>
+        <div class="pcard-body">
+          <p class="pcard-desc">Dashboard para monitoreo en tiempo real de indicadores de desempeño en trabajos de obras civiles mineras. Conectado a fuentes actualizadas periódicamente, con alertas visuales para desviaciones fuera de rango.</p>
+          <div class="pcard-impact">Permitió identificar patrones de desvío temprano y actuar antes de que afectaran el avance del programa.</div>
+        </div>
+      </div>
+
+      <div class="pcard reveal">
+        <div class="pcard-top">
+          <div class="pcard-num">03 · Agrosuper</div>
+          <div class="pcard-title">Automatización de Control de Caducidad</div>
+          <div class="pcard-sub">Python · SAP HANA · Automatización</div>
+        </div>
+        <div class="pcard-body">
+          <p class="pcard-desc">Script Python que se conectaba a la base de datos de producción, identificaba automáticamente productos congelados en riesgo de vencer antes del despacho y generaba reportes de alerta para el equipo de planta.</p>
+          <div class="pcard-impact">Reemplazó un proceso manual diario y redujo el riesgo de pérdidas por vencimiento en la cadena de distribución.</div>
+        </div>
+      </div>
+
+      <div class="pcard reveal">
+        <div class="pcard-top">
+          <div class="pcard-num">04 · Gardilcic / Memoria de Título</div>
+          <div class="pcard-title">Herramienta de Control de Hormigón</div>
+          <div class="pcard-sub">HTML · JavaScript · Validación de datos</div>
+        </div>
+        <div class="pcard-body">
+          <p class="pcard-desc">Aplicación web liviana para registrar y validar consumos de hormigón en terreno, comparando automáticamente contra valores teóricos y marcando desviaciones significativas en tiempo real.</p>
+          <div class="pcard-impact">Detectó sobreconsumos de hasta 200%, generando ahorro directo de materiales en faena.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="section alt" id="certifications">
+  <div class="wrap">
+    <div class="label reveal">Formación continua</div>
+    <h2 class="stitle reveal">Certificaciones</h2>
+    <p class="stitle-note reveal">Aprendizaje fuera de la universidad, en las áreas que me importan.</p>
+    <div class="certs-grid">
+      <div class="cert reveal"><div class="cert-inst">Harvard Business School</div><div class="cert-name">Gestión de la Carrera</div></div>
+      <div class="cert reveal"><div class="cert-inst">MIT Professional Education</div><div class="cert-name">Transformación Digital</div></div>
+      <div class="cert reveal"><div class="cert-inst">Google</div><div class="cert-name">IA y Productividad</div></div>
+      <div class="cert reveal"><div class="cert-inst">Microsoft</div><div class="cert-name">Prompting: Maximiza la IA en tu Negocio</div></div>
+      <div class="cert reveal"><div class="cert-inst">Alura</div><div class="cert-name">Inmersión en Inteligencia Artificial</div></div>
+      <div class="cert reveal"><div class="cert-inst">Santander Open Academy</div><div class="cert-name">AI & Bots · Metodología Agile</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="label reveal">Hablemos</div>
+    <h2 class="stitle reveal">Contacto</h2>
+    <p class="stitle-note reveal">Disponible para posiciones de Data Analyst o roles en camino a Data Engineering.</p>
+    <div class="contact-row reveal">
+      <a href="mailto:juancanalescabello9@gmail.com" class="citem">
+        <span class="citem-label">Email</span>
+        <span class="citem-val">juancanalescabello9@gmail.com</span>
+        <span class="citem-arrow">→</span>
+      </a>
+      <a href="tel:+56966203717" class="citem">
+        <span class="citem-label">Teléfono</span>
+        <span class="citem-val">(+56) 9 6620 3717</span>
+        <span class="citem-arrow">→</span>
+      </a>
+      <a href="https://linkedin.com/in/juan-canales-cabello" target="_blank" class="citem">
+        <span class="citem-label">LinkedIn</span>
+        <span class="citem-val">Juan Canales Cabello</span>
+        <span class="citem-arrow">→</span>
+      </a>
+      <div class="citem" style="cursor:default;">
+        <span class="citem-label">Ubicación</span>
+        <span class="citem-val">Rancagua, Chile · Abierto a remoto</span>
+        <span class="citem-arrow" style="opacity:0;">→</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Juan Canales Cabello · 2025</span>
+  <span>Data Analyst → Data Engineer</span>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('in'), i * 70);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
