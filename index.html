@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Literata:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 :root {
   --ink: #181818;
@@ -28,6 +28,8 @@ body {
   background: var(--paper);
   color: var(--ink);
   line-height: 1.65;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* ─── NAV ─── */
@@ -84,6 +86,7 @@ nav {
   margin-bottom: 20px;
   display: flex; align-items: center; gap: 12px;
   opacity: 0; animation: up 0.8s 0.1s ease forwards;
+  flex-wrap: wrap;
 }
 .hero-eyebrow::before {
   content: '';
@@ -160,11 +163,20 @@ h1.hero-title em {
   text-decoration: none;
   transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
   border: 1px solid var(--teal);
+  display: inline-block;
+  text-align: center;
 }
 .hero-cta:hover {
   background: #0f8e75;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(13, 124, 102, 0.4);
+}
+
+.hero-actions {
+  display: flex; 
+  gap: 20px; 
+  align-items: center;
+  flex-wrap: wrap; /* Esencial para celulares */
 }
 
 /* ─── SECTIONS ─── */
@@ -331,6 +343,13 @@ h2.stitle {
 }
 .conf-note strong { color: var(--amber); }
 
+.panapp-stats {
+  display: flex; gap: 24px; margin: 20px 0 16px; flex-wrap: wrap;
+}
+.panapp-stats > div {
+  text-align: center;
+}
+
 /* ─── CERTS ─── */
 .certs-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
 .cert {
@@ -396,6 +415,7 @@ h2.stitle {
   font-size: 1rem; font-weight: 300;
   color: rgba(255,255,255,0.85);
   flex: 1;
+  word-break: break-word; /* Previene desbordes de URLs largas en movil */
 }
 .citem-arrow { color: rgba(255,255,255,0.2); font-size: 1.1rem; }
 .citem:hover .citem-arrow { color: var(--teal); }
@@ -418,17 +438,23 @@ footer {
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.in { opacity: 1; transform: none; }
 
-/* ─── RESPONSIVE ─── */
+/* ─── RESPONSIVE (OPTIMIZADO PARA MÓVILES) ─── */
 @media (max-width: 860px) {
-  .hero { padding: 120px 32px 64px; }
+  .hero { padding: 100px 24px 48px; }
+  h1.hero-title { font-size: clamp(2.5rem, 10vw, 4rem); }
+  .hero-bottom { gap: 24px; }
   .path-grid, .stack-cols, .projects-grid, .certs-grid { grid-template-columns: 1fr; }
   .path-col:first-child { border-right: none; border-bottom: 1px solid var(--rule); }
-  .xp-item { grid-template-columns: 1fr; gap: 6px; }
-  nav { padding: 0 24px; }
+  .path-col { padding: 28px 20px; }
+  .xp-item { grid-template-columns: 1fr; gap: 12px; padding: 32px 0; }
+  nav { padding: 0 20px; }
   .nav-links { display: none; }
   .wrap { padding: 0 24px; }
-  footer { flex-direction: column; gap: 8px; }
+  .section { padding: 64px 0; }
+  .pcard-top, .pcard-body { padding: 20px; }
+  footer { flex-direction: column; gap: 12px; align-items: flex-start; padding: 24px 24px; }
   .contact-row .citem-label { width: 90px; font-size: 0.62rem; }
+  .panapp-stats > div { text-align: left; width: 100%; margin-bottom: 8px; } /* Ajuste de métricas PanApp para celular */
 }
 </style>
 </head>
@@ -471,7 +497,7 @@ footer {
       <span class="chip">SAP HANA</span>
       <span class="chip">Automatización</span>
     </div>
-    <div style="display: flex; gap: 20px; align-items: center;">
+    <div class="hero-actions">
       <a href="#certifications" class="hero-cta">Ver Certificaciones</a>
       <a href="#stack" class="hero-scroll">Scroll</a>
     </div>
@@ -699,16 +725,16 @@ footer {
         <div class="pcard-body" style="background: transparent;">
           <p class="pcard-desc" style="color: rgba(255,255,255,0.7);">SaaS B2B que digitaliza la gestión de pedidos entre panaderías y sus almacenes distribuidores en Chile. Una panadería que despacha a más de 40 almacenes recibía 40 llamadas diarias para coordinar pedidos — PanApp reemplazó ese proceso con un sistema completo: catálogo de productos, carrito inteligente, calendario de entregas por turno AM/PM, y pagos integrados con Mercado Pago.</p>
           <p class="pcard-desc" style="color: rgba(255,255,255,0.7);">Incluye dashboard administrativo en tiempo real con KPIs, control de capacidad de producción que bloquea automáticamente pedidos cuando el turno está lleno, planificación de rutas de reparto con Google Maps, y gestión de estados tipo Kanban. Arquitectura multi-tenant, autenticación por RUT, validación de datos (RUT chileno, teléfono, dirección por campos), RLS completo en Supabase, y deploy en Vercel.</p>
-          <div style="display: flex; gap: 24px; margin: 20px 0 16px; flex-wrap: wrap;">
-            <div style="text-align: center;">
+          <div class="panapp-stats">
+            <div>
               <div style="font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--teal);">40 → 0</div>
               <div style="font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-top: 2px;">Llamadas diarias eliminadas</div>
             </div>
-            <div style="text-align: center;">
+            <div>
               <div style="font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--teal);">1er cliente</div>
               <div style="font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-top: 2px;">Panadería pagando en producción</div>
             </div>
-            <div style="text-align: center;">
+            <div>
               <div style="font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--teal);">Full-stack</div>
               <div style="font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-top: 2px;">Diseño, desarrollo, venta y soporte</div>
             </div>
@@ -721,7 +747,6 @@ footer {
   </div>
 </section>
 
-<!-- CERTIFICATIONS -->
 <!-- CERTIFICATIONS -->
 <section class="section alt" id="certifications">
   <div class="wrap">
@@ -803,7 +828,7 @@ footer {
 </footer>
 
 <script>
-  // Observador simplificado y robusto a prueba de fallos de carga
+  // Observador optimizado para celulares (0.05 en lugar de 0.15 para que cargue más rápido en pantallas chicas)
   const obs = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
       if (e.isIntersecting) {
@@ -812,7 +837,7 @@ footer {
       }
     });
   }, { 
-    threshold: 0.15 
+    threshold: 0.05 
   });
 
   document.querySelectorAll('.reveal').forEach((el) => {
