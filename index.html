@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Juan Canales — Data Analyst</title>
+<title>Juan Canales — Data Analyst & SaaS Developer</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Literata:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -145,6 +145,26 @@ h1.hero-title em {
   content: '';
   display: block; width: 1px; height: 40px;
   background: rgba(255,255,255,0.2);
+}
+
+.hero-cta {
+  background: var(--teal);
+  color: var(--white);
+  padding: 12px 28px;
+  border-radius: 100px;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  border: 1px solid var(--teal);
+}
+.hero-cta:hover {
+  background: #0f8e75;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(13, 124, 102, 0.4);
 }
 
 /* ─── SECTIONS ─── */
@@ -318,14 +338,36 @@ h2.stitle {
   border: 1px solid var(--rule); border-radius: 10px;
   padding: 18px 20px;
   display: flex; flex-direction: column; gap: 4px;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  position: relative;
 }
-.cert:hover { border-color: var(--teal); }
+.cert:hover { 
+  border-color: var(--teal); 
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+.cert::after {
+  content: '↗';
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  font-size: 0.9rem;
+  color: var(--teal);
+  opacity: 0;
+  transform: translate(-4px, 4px);
+  transition: opacity 0.2s, transform 0.2s;
+}
+.cert:hover::after {
+  opacity: 1;
+  transform: translate(0, 0);
+}
 .cert-inst {
   font-family: 'Syne', sans-serif;
   font-size: 0.65rem; font-weight: 700;
   letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--ink-light);
+  padding-right: 16px; /* Deja espacio para la flecha */
 }
 .cert-name { font-size: 0.88rem; font-weight: 400; color: var(--ink); line-height: 1.4; }
 
@@ -407,12 +449,13 @@ footer {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg-text">DATA</div>
-  <div class="hero-eyebrow">Data Analyst · en camino a Data Engineer</div>
+  <div class="hero-eyebrow">Data Analyst · Desarrollador SaaS · en camino a Data Engineer</div>
   <h1 class="hero-title">Juan Canales<br><em>Cabello</em></h1>
   <p class="hero-bio">
     Ingeniero Civil Industrial con experiencia real convirtiendo datos industriales en <strong>decisiones concretas</strong>. 
     He trabajado en minería de cobre y agroindustria, construyendo pipelines, automatizando reportes y 
     visualizando KPIs que terminaron en reuniones de superintendencia. 
+    También construí <strong>PanApp</strong>, un SaaS con cliente pagando que digitaliza pedidos de panaderías.
     Hoy estoy en camino a <strong>Data Engineering</strong>.
   </p>
   <div class="hero-bottom">
@@ -420,13 +463,18 @@ footer {
       <span class="chip highlight">Python</span>
       <span class="chip highlight">SQL</span>
       <span class="chip highlight">Power BI</span>
+      <span class="chip highlight">Next.js</span>
+      <span class="chip highlight">TypeScript</span>
+      <span class="chip">Supabase</span>
+      <span class="chip">Tailwind CSS</span>
       <span class="chip">Power Query</span>
       <span class="chip">SAP HANA</span>
-      <span class="chip">Excel Avanzado</span>
-      <span class="chip">DAX</span>
       <span class="chip">Automatización</span>
     </div>
-    <a href="#stack" class="hero-scroll">Scroll</a>
+    <div style="display: flex; gap: 20px; align-items: center;">
+      <a href="#certifications" class="hero-cta">Ver Certificaciones</a>
+      <a href="#stack" class="hero-scroll">Scroll</a>
+    </div>
   </div>
 </section>
 
@@ -642,23 +690,73 @@ footer {
         </div>
       </div>
 
+      <div class="pcard reveal" style="grid-column: 1 / -1; background: var(--ink); border-color: rgba(255,255,255,0.1);">
+        <div class="pcard-top" style="background: transparent; border-bottom: 1px solid rgba(255,255,255,0.1);">
+          <div class="pcard-num" style="color: var(--teal);">05 · Proyecto Propio · SaaS en Producción</div>
+          <div class="pcard-title" style="color: var(--white);">PanApp — Gestión de Pedidos para Panaderías</div>
+          <div class="pcard-sub" style="color: rgba(255,255,255,0.5);">Next.js 14 · TypeScript · Supabase · Tailwind CSS · Framer Motion · Mercado Pago</div>
+        </div>
+        <div class="pcard-body" style="background: transparent;">
+          <p class="pcard-desc" style="color: rgba(255,255,255,0.7);">SaaS B2B que digitaliza la gestión de pedidos entre panaderías y sus almacenes distribuidores en Chile. Una panadería que despacha a más de 40 almacenes recibía 40 llamadas diarias para coordinar pedidos — PanApp reemplazó ese proceso con un sistema completo: catálogo de productos, carrito inteligente, calendario de entregas por turno AM/PM, y pagos integrados con Mercado Pago.</p>
+          <p class="pcard-desc" style="color: rgba(255,255,255,0.7);">Incluye dashboard administrativo en tiempo real con KPIs, control de capacidad de producción que bloquea automáticamente pedidos cuando el turno está lleno, planificación de rutas de reparto con Google Maps, y gestión de estados tipo Kanban. Arquitectura multi-tenant, autenticación por RUT, validación de datos (RUT chileno, teléfono, dirección por campos), RLS completo en Supabase, y deploy en Vercel.</p>
+          <div style="display: flex; gap: 24px; margin: 20px 0 16px; flex-wrap: wrap;">
+            <div style="text-align: center;">
+              <div style="font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--teal);">40 → 0</div>
+              <div style="font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-top: 2px;">Llamadas diarias eliminadas</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--teal);">1er cliente</div>
+              <div style="font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-top: 2px;">Panadería pagando en producción</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--teal);">Full-stack</div>
+              <div style="font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-top: 2px;">Diseño, desarrollo, venta y soporte</div>
+            </div>
+          </div>
+          <div class="pcard-impact" style="color: #5dd6be;">Producto real con cliente pagando — de la idea al ingreso recurrente como desarrollador independiente.</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
 <!-- CERTIFICATIONS -->
+<!-- CERTIFICATIONS -->
 <section class="section alt" id="certifications">
   <div class="wrap">
     <div class="label reveal">Formación continua</div>
-    <h2 class="stitle reveal">Certificaciones</h2>
-    <p class="stitle-note reveal">Aprendizaje fuera de la universidad, en las áreas que me importan.</p>
+    <h2 class="stitle reveal">Certificaciones y Estudios</h2>
+    <p class="stitle-note reveal">Mi título profesional y aprendizaje continuo en las áreas que me importan.</p>
     <div class="certs-grid">
-      <div class="cert reveal"><div class="cert-inst">Harvard Business School</div><div class="cert-name">Gestión de la Carrera</div></div>
-      <div class="cert reveal"><div class="cert-inst">MIT Professional Education</div><div class="cert-name">Transformación Digital</div></div>
-      <div class="cert reveal"><div class="cert-inst">Google</div><div class="cert-name">IA y Productividad</div></div>
-      <div class="cert reveal"><div class="cert-inst">Microsoft</div><div class="cert-name">Prompting: Maximiza la IA en tu Negocio</div></div>
-      <div class="cert reveal"><div class="cert-inst">Alura</div><div class="cert-name">Inmersión en Inteligencia Artificial</div></div>
-      <div class="cert reveal"><div class="cert-inst">Santander Open Academy</div><div class="cert-name">AI & Bots · Metodología Agile</div></div>
+      <a href="https://www.linkedin.com/in/juan-pablo-canales-cabello-19873b293/overlay/Education/923613489/treasury/?profileId=ACoAAEcfQkQBVdgwWegDnQhQKroaInflxIwH-_M" target="_blank" class="cert reveal" style="grid-column: 1 / -1; border-color: var(--teal); background: var(--teal-light);">
+        <div class="cert-inst" style="color: var(--teal);">Título Profesional</div>
+        <div class="cert-name" style="font-weight: 700; font-size: 1.1rem; color: var(--teal);">Ingeniero Civil Industrial</div>
+      </a>
+      <a href="https://www.linkedin.com/in/juan-pablo-canales-cabello-19873b293/details/certifications/" target="_blank" class="cert reveal">
+        <div class="cert-inst">Harvard Business School</div>
+        <div class="cert-name">Gestión de la Carrera</div>
+      </a>
+      <a href="https://www.linkedin.com/in/juan-pablo-canales-cabello-19873b293/details/certifications/" target="_blank" class="cert reveal">
+        <div class="cert-inst">MIT Professional Education</div>
+        <div class="cert-name">Transformación Digital</div>
+      </a>
+      <a href="https://www.linkedin.com/in/juan-pablo-canales-cabello-19873b293/details/certifications/" target="_blank" class="cert reveal">
+        <div class="cert-inst">Google</div>
+        <div class="cert-name">IA y Productividad</div>
+      </a>
+      <a href="https://www.linkedin.com/in/juan-pablo-canales-cabello-19873b293/details/certifications/" target="_blank" class="cert reveal">
+        <div class="cert-inst">Microsoft</div>
+        <div class="cert-name">Prompting: Maximiza la IA en tu Negocio</div>
+      </a>
+      <a href="https://www.linkedin.com/in/juan-pablo-canales-cabello-19873b293/details/certifications/" target="_blank" class="cert reveal">
+        <div class="cert-inst">Alura</div>
+        <div class="cert-name">Inmersión en Inteligencia Artificial</div>
+      </a>
+      <a href="https://www.linkedin.com/in/juan-pablo-canales-cabello-19873b293/details/certifications/" target="_blank" class="cert reveal">
+        <div class="cert-inst">Santander Open Academy</div>
+        <div class="cert-name">AI & Bots · Metodología Agile</div>
+      </a>
     </div>
   </div>
 </section>
@@ -670,6 +768,11 @@ footer {
     <h2 class="stitle reveal">Contacto</h2>
     <p class="stitle-note reveal">Disponible para posiciones de Data Analyst o roles en camino a Data Engineering.</p>
     <div class="contact-row reveal">
+      <a href="https://github.com/juancanalescabello9-design" target="_blank" class="citem">
+        <span class="citem-label">GitHub</span>
+        <span class="citem-val">juancanalescabello9-design</span>
+        <span class="citem-arrow">→</span>
+      </a>
       <a href="mailto:juancanalescabello9@gmail.com" class="citem">
         <span class="citem-label">Email</span>
         <span class="citem-val">juancanalescabello9@gmail.com</span>
@@ -680,14 +783,14 @@ footer {
         <span class="citem-val">(+56) 9 6620 3717</span>
         <span class="citem-arrow">→</span>
       </a>
-      <a href="https://linkedin.com/in/juan-canales-cabello" target="_blank" class="citem">
+      <a href="https://www.linkedin.com/in/juan-pablo-canales-cabello-19873b293/" target="_blank" class="citem">
         <span class="citem-label">LinkedIn</span>
-        <span class="citem-val">Juan Canales Cabello</span>
+        <span class="citem-val">Juan Pablo Canales Cabello</span>
         <span class="citem-arrow">→</span>
       </a>
       <div class="citem" style="cursor:default;">
         <span class="citem-label">Ubicación</span>
-        <span class="citem-val">Rancagua o Santiago, Chile</span>
+        <span class="citem-val">Rancagua, Chile · Abierto a remoto</span>
         <span class="citem-arrow" style="opacity:0;">→</span>
       </div>
     </div>
@@ -696,19 +799,25 @@ footer {
 
 <footer>
   <span>Juan Canales Cabello · 2025</span>
-  <span>Data Analyst → Data Engineer</span>
+  <span>Data Analyst · SaaS Developer → Data Engineer</span>
 </footer>
 
 <script>
+  // Observador simplificado y robusto a prueba de fallos de carga
   const obs = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
+    entries.forEach((e) => {
       if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('in'), i * 70);
+        e.target.classList.add('in');
         obs.unobserve(e.target);
       }
     });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  }, { 
+    threshold: 0.15 
+  });
+
+  document.querySelectorAll('.reveal').forEach((el) => {
+    obs.observe(el);
+  });
 </script>
 </body>
 </html>
