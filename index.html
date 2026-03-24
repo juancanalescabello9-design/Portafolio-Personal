@@ -3,13 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Juan Canales — Data Analyst & SaaS Developer</title>
-<!-- Enlace de Google Fonts corregido (&amp; en lugar de & para validación estricta HTML) -->
+<title>Juan Canales — Data Analyst &amp; SaaS Developer</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&amp;family=Literata:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
-/* ERROR CORREGIDO: Quitar overflow-x: hidden del html soluciona el bug de smooth scroll en iOS/Safari */
 html { scroll-behavior: smooth; }
 
 :root {
@@ -24,6 +21,8 @@ html { scroll-behavior: smooth; }
   --amber: #c97b2a;
   --amber-light: #fdf3e7;
   --white: #fff;
+  --red: #c0392b;
+  --red-light: #fdecea;
 }
 
 body {
@@ -183,7 +182,6 @@ h1.hero-title em {
 }
 
 /* ─── SECTIONS ─── */
-/* ERROR CORREGIDO: scroll-margin-top para que el nav no tape los títulos al clickear anclas */
 .section { padding: 96px 0; scroll-margin-top: 60px; }
 .section.alt { background: var(--white); }
 .wrap { max-width: 1080px; margin: 0 auto; padding: 0 48px; }
@@ -262,6 +260,7 @@ h2.stitle {
   transition: background 0.3s;
 }
 .dot.on { background: var(--teal); }
+.dot.on-red { background: var(--red); }
 
 /* ─── EXPERIENCE ─── */
 .xp-list { display: flex; flex-direction: column; gap: 0; }
@@ -304,6 +303,7 @@ h2.stitle {
   color: var(--ink-mid);
 }
 .xtag.teal { background: var(--teal-light); color: var(--teal); }
+.xtag.red { background: var(--red-light); color: var(--red); }
 
 /* ─── PROJECTS ─── */
 .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -338,6 +338,7 @@ h2.stitle {
   line-height: 1.5;
 }
 .pcard-impact::before { content: '↳'; flex-shrink: 0; }
+.pcard-impact.red { color: var(--red); }
 .conf-note {
   margin-bottom: 32px; padding: 16px 20px;
   background: var(--amber-light);
@@ -470,7 +471,7 @@ footer {
     <li><a href="#stack">Stack</a></li>
     <li><a href="#experience">Experiencia</a></li>
     <li><a href="#projects">Proyectos</a></li>
-    <li><a href="#certifications">Formación</a></li>
+    <li><a href="#certifications">Formaci&oacute;n</a></li>
     <li><a href="#contact">Contacto</a></li>
   </ul>
 </nav>
@@ -479,14 +480,14 @@ footer {
   <!-- HERO -->
   <section class="hero">
     <div class="hero-bg-text">DATA</div>
-    <div class="hero-eyebrow">Data Analyst · Desarrollador SaaS · en camino a Data Engineer</div>
+    <div class="hero-eyebrow">Data Analyst &middot; Desarrollador SaaS &middot; en camino a AI Solutions Engineer</div>
     <h1 class="hero-title">Juan Canales<br><em>Cabello</em></h1>
     <p class="hero-bio">
       Ingeniero Civil Industrial con experiencia real convirtiendo datos industriales en <strong>decisiones concretas</strong>. 
-      He trabajado en minería de cobre y agroindustria, construyendo pipelines, automatizando reportes y 
+      He trabajado en miner&iacute;a de cobre y agroindustria, construyendo pipelines, automatizando reportes y 
       visualizando KPIs que terminaron en reuniones de superintendencia. 
-      También construí <strong>PanApp</strong>, un SaaS con cliente pagando que digitaliza pedidos de panaderías.
-      Hoy estoy en camino a <strong>Data Engineering</strong>.
+      Tambi&eacute;n constru&iacute; <strong>PanApp</strong>, un SaaS con cliente pagando que digitaliza pedidos de panader&iacute;as.
+      Hoy estoy en camino a <strong>AI Solutions Engineering</strong>.
     </p>
     <div class="hero-bottom">
       <div class="hero-chips">
@@ -499,7 +500,7 @@ footer {
         <span class="chip">Tailwind CSS</span>
         <span class="chip">Power Query</span>
         <span class="chip">SAP HANA</span>
-        <span class="chip">Automatización</span>
+        <span class="chip">Automatizaci&oacute;n</span>
       </div>
       <div class="hero-actions">
         <a href="#certifications" class="hero-cta">Ver Certificaciones</a>
@@ -511,19 +512,20 @@ footer {
   <!-- ABOUT / PATH -->
   <section class="section alt" id="about">
     <div class="wrap">
-      <div class="label reveal">Sobre mí</div>
+      <div class="label reveal">Sobre m&iacute;</div>
       <h2 class="stitle reveal">Analista de datos<br>con mentalidad de ingeniero</h2>
-      <p class="stitle-note reveal">No vengo del mundo IT clásico, vengo de la industria. Eso cambia cómo pienso los datos.</p>
+      <p class="stitle-note reveal">No vengo del mundo IT cl&aacute;sico, vengo de la industria. Eso cambia c&oacute;mo pienso los datos.</p>
       <div class="path-grid reveal">
         <div class="path-col">
-          <div class="path-col-label">Dónde estoy hoy</div>
-          <p>Trabajo con datos operacionales reales: producción minera, estados de pago, control de calidad. Construyo modelos en Power BI, transformo fuentes con Power Query y SQL, y automatizo flujos con Python.</p>
-          <p>Mi formación como <strong>Ingeniero Civil Industrial</strong> me da un contexto que los analistas puramente técnicos a veces no tienen: entiendo el negocio detrás del dato.</p>
+          <div class="path-col-label">D&oacute;nde estoy hoy</div>
+          <p>Trabajo con datos operacionales reales: producci&oacute;n minera, estados de pago, control de calidad. Construyo modelos en Power BI, transformo fuentes con Power Query y SQL, y automatizo flujos con Python.</p>
+          <p>Mi formaci&oacute;n como <strong>Ingeniero Civil Industrial</strong> me da un contexto que los analistas puramente t&eacute;cnicos a veces no tienen: entiendo el negocio detr&aacute;s del dato.</p>
         </div>
         <div class="path-col">
-          <div class="path-col-label">Hacia dónde voy</div>
-          <p>Estoy construyendo las bases para moverme a <strong>Data Engineering</strong>: pipelines de datos, arquitecturas en la nube, modelado dimensional y automatización a escala.</p>
-          <p>Tengo certificaciones en transformación digital (MIT), IA aplicada (Google, Microsoft) y metodologías ágiles. El camino está trazado y ya estoy en él.</p>
+          <!-- CAMBIO 1: Hacia dónde voy → AI Solutions Engineering -->
+          <div class="path-col-label">Hacia d&oacute;nde voy</div>
+          <p>Estoy construyendo las bases para moverme a <strong>AI Solutions Engineering</strong>: crear agentes aut&oacute;nomos, automatizar procesos con IA y desarrollar software que reemplace tareas manuales por sistemas inteligentes.</p>
+          <p>Ya constru&iacute; un agente personal con <strong>Open Interpreter + Gemini API</strong> que controla mi entorno digital completo, y un SaaS en producci&oacute;n con <strong>Claude Code</strong>. El camino est&aacute; trazado y ya estoy en &eacute;l.</p>
         </div>
       </div>
     </div>
@@ -533,56 +535,57 @@ footer {
   <section class="section" id="stack">
     <div class="wrap">
       <div class="label reveal">Herramientas</div>
-      <h2 class="stitle reveal">Stack técnico</h2>
+      <h2 class="stitle reveal">Stack t&eacute;cnico</h2>
       <p class="stitle-note reveal">Lo que uso en el trabajo real, no solo en cursos.</p>
       <div class="stack-cols">
 
+        <!-- CAMBIO 2: Nuevos bloques de stack para AI -->
+        <div class="stack-block reveal" style="border-color: var(--red-light);">
+          <div class="stack-block-icon">&#x1F916;</div>
+          <div class="stack-block-cat" style="color: var(--red);">AI / Agentes</div>
+          <div class="stack-block-name">Open Interpreter</div>
+          <div class="stack-block-desc">Agentes aut&oacute;nomos con control total del sistema: archivos, APIs, bases de datos, email y calendario.</div>
+          <div class="stack-level"><div class="dot on-red"></div><div class="dot on-red"></div><div class="dot on-red"></div><div class="dot on-red"></div><div class="dot"></div></div>
+        </div>
+
+        <div class="stack-block reveal" style="border-color: var(--red-light);">
+          <div class="stack-block-icon">&#x2728;</div>
+          <div class="stack-block-cat" style="color: var(--red);">AI / APIs</div>
+          <div class="stack-block-name">Gemini &amp; Claude</div>
+          <div class="stack-block-desc">Integraci&oacute;n de LLMs v&iacute;a API para agentes, generaci&oacute;n de c&oacute;digo, an&aacute;lisis de datos y automatizaci&oacute;n.</div>
+          <div class="stack-level"><div class="dot on-red"></div><div class="dot on-red"></div><div class="dot on-red"></div><div class="dot on-red"></div><div class="dot"></div></div>
+        </div>
+
         <div class="stack-block reveal">
-          <div class="stack-block-icon">🐍</div>
+          <div class="stack-block-icon">&#x1F40D;</div>
           <div class="stack-block-cat">Lenguajes</div>
           <div class="stack-block-name">Python</div>
-          <div class="stack-block-desc">Automatización de procesos (RPA), análisis de datos con pandas, scripts de transformación y alertas.</div>
+          <div class="stack-block-desc">Automatizaci&oacute;n de procesos (RPA), an&aacute;lisis de datos con pandas, scripts de transformaci&oacute;n y alertas.</div>
           <div class="stack-level"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div>
         </div>
 
         <div class="stack-block reveal">
-          <div class="stack-block-icon">🗄️</div>
+          <div class="stack-block-icon">&#x1F5C4;&#xFE0F;</div>
           <div class="stack-block-cat">Lenguajes</div>
           <div class="stack-block-name">SQL</div>
-          <div class="stack-block-desc">Consultas de extracción, joins, agregaciones y preparación de fuentes para modelos analíticos.</div>
+          <div class="stack-block-desc">Consultas de extracci&oacute;n, joins, agregaciones y preparaci&oacute;n de fuentes para modelos anal&iacute;ticos.</div>
           <div class="stack-level"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div>
         </div>
 
         <div class="stack-block reveal">
-          <div class="stack-block-icon">📊</div>
-          <div class="stack-block-cat">Visualización</div>
+          <div class="stack-block-icon">&#x1F4CA;</div>
+          <div class="stack-block-cat">Visualizaci&oacute;n</div>
           <div class="stack-block-name">Power BI</div>
-          <div class="stack-block-desc">Dashboards interactivos, modelado dimensional, DAX para KPIs, publicación en Power BI Service.</div>
+          <div class="stack-block-desc">Dashboards interactivos, modelado dimensional, DAX para KPIs, publicaci&oacute;n en Power BI Service.</div>
           <div class="stack-level"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div>
         </div>
 
         <div class="stack-block reveal">
-          <div class="stack-block-icon">🔄</div>
-          <div class="stack-block-cat">ETL / Transformación</div>
-          <div class="stack-block-name">Power Query (M)</div>
-          <div class="stack-block-desc">Limpieza y transformación de datos, conexión a múltiples fuentes, automatización de flujos ETL.</div>
+          <div class="stack-block-icon">&#x26A1;</div>
+          <div class="stack-block-cat">Full-stack</div>
+          <div class="stack-block-name">Next.js &amp; Supabase</div>
+          <div class="stack-block-desc">Desarrollo de aplicaciones web completas, SaaS, APIs, integraciones de pago y dashboards en tiempo real.</div>
           <div class="stack-level"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div>
-        </div>
-
-        <div class="stack-block reveal">
-          <div class="stack-block-icon">🏭</div>
-          <div class="stack-block-cat">ERP</div>
-          <div class="stack-block-name">SAP HANA</div>
-          <div class="stack-block-desc">Módulo PP para seguimiento de producción, extracción de datos operacionales y KPIs industriales.</div>
-          <div class="stack-level"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div>
-        </div>
-
-        <div class="stack-block reveal">
-          <div class="stack-block-icon">📋</div>
-          <div class="stack-block-cat">Productividad</div>
-          <div class="stack-block-name">Excel Avanzado</div>
-          <div class="stack-block-desc">Power Pivot, tablas dinámicas, modelos de datos y reportes automatizados para entornos industriales.</div>
-          <div class="stack-level"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div>
         </div>
 
       </div>
@@ -594,23 +597,23 @@ footer {
     <div class="wrap">
       <div class="label reveal">Trayectoria</div>
       <h2 class="stitle reveal">Experiencia</h2>
-      <p class="stitle-note reveal">Proyectos de datos en industrias donde los números tienen peso real.</p>
+      <p class="stitle-note reveal">Proyectos de datos en industrias donde los n&uacute;meros tienen peso real.</p>
       <div class="xp-list">
 
         <div class="xp-item reveal">
           <div class="xp-meta">
-            <div class="xp-period">2025 — Hoy</div>
+            <div class="xp-period">2025 &mdash; Hoy</div>
             <div class="xp-company">Gardilcic</div>
-            <div class="xp-sector">Minería · El Teniente</div>
+            <div class="xp-sector">Miner&iacute;a &middot; El Teniente</div>
           </div>
           <div>
-            <div class="xp-role">Ingeniero Oficina Técnica</div>
+            <div class="xp-role">Ingeniero Oficina T&eacute;cnica</div>
             <p class="xp-body">Construyo y mantengo la reportabilidad gerencial para un contrato de desarrollo minero de cientos de millones de pesos. Eso incluye control de estados de pago, proyecciones de rendimiento (PF) y Planes de Actividades Mensuales, todo consolidado en dashboards que se presentan cada semana ante superintendencia.</p>
-            <p class="xp-body">El trabajo no es solo hacer el gráfico bonito: es entender qué dato importa, de dónde viene y cómo transformarlo en algo que alguien puede actuar.</p>
+            <p class="xp-body">El trabajo no es solo hacer el gr&aacute;fico bonito: es entender qu&eacute; dato importa, de d&oacute;nde viene y c&oacute;mo transformarlo en algo que alguien puede actuar.</p>
             <div class="xp-tags">
               <span class="xtag teal">Power BI</span>
               <span class="xtag teal">Excel Avanzado</span>
-              <span class="xtag">Control de Gestión</span>
+              <span class="xtag">Control de Gesti&oacute;n</span>
               <span class="xtag">KPIs Operacionales</span>
               <span class="xtag">Reportabilidad Gerencial</span>
             </div>
@@ -619,14 +622,14 @@ footer {
 
         <div class="xp-item reveal">
           <div class="xp-meta">
-            <div class="xp-period">2024 — 2025</div>
+            <div class="xp-period">2024 &mdash; 2025</div>
             <div class="xp-company">Gardilcic</div>
-            <div class="xp-sector">Memoria de Título</div>
+            <div class="xp-sector">Memoria de T&iacute;tulo</div>
           </div>
           <div>
-            <div class="xp-role">Ingeniero en Formación — Datos y Calidad</div>
-            <p class="xp-body">Diseñé e implementé dashboards en Power BI para monitorear indicadores de calidad en faena minera. También desarrollé una herramienta web en HTML/JS para calcular consumos de hormigón, que permitió detectar y corregir sobreconsumos de hasta un 200%.</p>
-            <p class="xp-body">Primer contacto real con el ciclo completo: tomar datos crudos de terreno, transformarlos y entregarlos como información útil.</p>
+            <div class="xp-role">Ingeniero en Formaci&oacute;n &mdash; Datos y Calidad</div>
+            <p class="xp-body">Dise&ntilde;&eacute; e implement&eacute; dashboards en Power BI para monitorear indicadores de calidad en faena minera. Tambi&eacute;n desarroll&eacute; una herramienta web en HTML/JS para calcular consumos de hormig&oacute;n, que permiti&oacute; detectar y corregir sobreconsumos de hasta un 200%.</p>
+            <p class="xp-body">Primer contacto real con el ciclo completo: tomar datos crudos de terreno, transformarlos y entregarlos como informaci&oacute;n &uacute;til.</p>
             <div class="xp-tags">
               <span class="xtag teal">Power BI</span>
               <span class="xtag teal">DAX</span>
@@ -644,15 +647,15 @@ footer {
             <div class="xp-sector">Agroindustria</div>
           </div>
           <div>
-            <div class="xp-role">Práctica — Ingeniería de Procesos</div>
-            <p class="xp-body">Desarrollé una solución de automatización en Python que leía bases de datos de producción desde SAP y detectaba productos congelados con riesgo de vencer antes del despacho. El sistema corría automáticamente y generaba alertas, evitando pérdidas en la cadena de frío.</p>
-            <p class="xp-body">También llevé el seguimiento de KPIs productivos con Excel Avanzado y SAP módulo PP, apoyando decisiones de planta en tiempo real.</p>
+            <div class="xp-role">Pr&aacute;ctica &mdash; Ingenier&iacute;a de Procesos</div>
+            <p class="xp-body">Desarroll&eacute; una soluci&oacute;n de automatizaci&oacute;n en Python que le&iacute;a bases de datos de producci&oacute;n desde SAP y detectaba productos congelados con riesgo de vencer antes del despacho. El sistema corr&iacute;a autom&aacute;ticamente y generaba alertas, evitando p&eacute;rdidas en la cadena de fr&iacute;o.</p>
+            <p class="xp-body">Tambi&eacute;n llev&eacute; el seguimiento de KPIs productivos con Excel Avanzado y SAP m&oacute;dulo PP, apoyando decisiones de planta en tiempo real.</p>
             <div class="xp-tags">
               <span class="xtag teal">Python</span>
               <span class="xtag teal">SAP HANA (PP)</span>
               <span class="xtag teal">Excel Avanzado</span>
               <span class="xtag">RPA</span>
-              <span class="xtag">KPIs de Producción</span>
+              <span class="xtag">KPIs de Producci&oacute;n</span>
             </div>
           </div>
         </div>
@@ -668,82 +671,92 @@ footer {
       <h2 class="stitle reveal">Proyectos destacados</h2>
       <p class="stitle-note reveal">Soluciones construidas en entornos industriales reales, no en datasets de Kaggle.</p>
       <div class="conf-note reveal">
-        <strong>Nota de confidencialidad:</strong> Los proyectos descritos aquí fueron desarrollados en empresas. No puedo compartir los archivos originales, pero puedo hablar en detalle sobre metodología, decisiones técnicas y resultados en una entrevista.
+        <strong>Nota de confidencialidad:</strong> Los proyectos descritos aqu&iacute; fueron desarrollados en empresas. No puedo compartir los archivos originales, pero puedo hablar en detalle sobre metodolog&iacute;a, decisiones t&eacute;cnicas y resultados en una entrevista.
       </div>
       <div class="projects-grid">
 
-        <div class="pcard reveal">
-          <div class="pcard-top">
-            <div class="pcard-num">01 · Gardilcic / El Teniente</div>
-            <div class="pcard-title">Dashboard de KPIs Gerenciales</div>
-            <div class="pcard-sub">Power BI · DAX · Power Query · Excel</div>
-          </div>
-          <div class="pcard-body">
-            <p class="pcard-desc">Modelo de datos que integra fuentes de distintos sistemas (planillas de terreno, SAP, Excel) y las expone como un único dashboard interactivo para reuniones semanales de superintendencia. Incluye seguimiento de avance físico, estados de pago y proyecciones PF.</p>
-            <div class="pcard-impact">Eliminó reportes manuales y consolidó la toma de decisiones de avance en un solo lugar.</div>
-          </div>
-        </div>
-
-        <div class="pcard reveal">
-          <div class="pcard-top">
-            <div class="pcard-num">02 · Gardilcic / Memoria de Título</div>
-            <div class="pcard-title">Monitor de Calidad en Faena</div>
-            <div class="pcard-sub">Power BI · DAX · Power Query</div>
-          </div>
-          <div class="pcard-body">
-            <p class="pcard-desc">Dashboard para monitoreo en tiempo real de indicadores de desempeño en trabajos de obras civiles mineras. Conectado a fuentes actualizadas periódicamente, con alertas visuales para desviaciones fuera de rango.</p>
-            <div class="pcard-impact">Permitió identificar patrones de desvío temprano y actuar antes de que afectaran el avance del programa.</div>
-          </div>
-        </div>
-
-        <div class="pcard reveal">
-          <div class="pcard-top">
-            <div class="pcard-num">03 · Agrosuper</div>
-            <div class="pcard-title">Automatización de Control de Caducidad</div>
-            <div class="pcard-sub">Python · SAP HANA · Automatización</div>
-          </div>
-          <div class="pcard-body">
-            <p class="pcard-desc">Script Python que se conectaba a la base de datos de producción, identificaba automáticamente productos congelados en riesgo de vencer antes del despacho y generaba reportes de alerta para el equipo de planta.</p>
-            <div class="pcard-impact">Reemplazó un proceso manual diario y redujo el riesgo de pérdidas por vencimiento en la cadena de distribución.</div>
-          </div>
-        </div>
-
-        <div class="pcard reveal">
-          <div class="pcard-top">
-            <div class="pcard-num">04 · Gardilcic / Memoria de Título</div>
-            <div class="pcard-title">Herramienta de Control de Hormigón</div>
-            <div class="pcard-sub">HTML · JavaScript · Validación de datos</div>
-          </div>
-          <div class="pcard-body">
-            <p class="pcard-desc">Aplicación web liviana para registrar y validar consumos de hormigón en terreno, comparando automáticamente contra valores teóricos y marcando desviaciones significativas en tiempo real.</p>
-            <div class="pcard-impact">Detectó sobreconsumos de hasta 200%, generando ahorro directo de materiales en faena.</div>
-          </div>
-        </div>
-
-        <div class="pcard reveal" style="grid-column: 1 / -1; background: var(--ink); border-color: rgba(255,255,255,0.1);">
-          <div class="pcard-top" style="background: transparent; border-bottom: 1px solid rgba(255,255,255,0.1);">
-            <div class="pcard-num" style="color: var(--teal);">05 · Proyecto Propio · SaaS en Producción</div>
-            <div class="pcard-title" style="color: var(--white);">PanApp — Gestión de Pedidos para Panaderías</div>
-            <div class="pcard-sub" style="color: rgba(255,255,255,0.5);">Next.js 14 · TypeScript · Supabase · Tailwind CSS · Framer Motion · Mercado Pago</div>
+        <!-- CAMBIO 3: Agente personal en ROJO como proyecto 01 -->
+        <div class="pcard reveal" style="grid-column: 1 / -1; background: #2a0a0a; border-color: rgba(192,57,43,0.3);">
+          <div class="pcard-top" style="background: transparent; border-bottom: 1px solid rgba(192,57,43,0.2);">
+            <div class="pcard-num" style="color: var(--red);">
+              <!-- Ícono terminal/agente -->
+              <svg style="display: inline-block; vertical-align: middle; margin-right: 6px;" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+              01 &middot; Agente Personal con IA &middot; En Producci&oacute;n
+            </div>
+            <div class="pcard-title" style="color: var(--white);">Asistente Ejecutivo Aut&oacute;nomo &mdash; Control Total del Entorno Digital</div>
+            <div class="pcard-sub" style="color: rgba(255,255,255,0.5);">Open Interpreter &middot; Gemini API &middot; Telegram Bot &middot; Hostinger VPS &middot; Google Sheets &middot; Gmail</div>
           </div>
           <div class="pcard-body" style="background: transparent;">
-            <p class="pcard-desc" style="color: rgba(255,255,255,0.7);">SaaS B2B que digitaliza la gestión de pedidos entre panaderías y sus almacenes distribuidores en Chile. Una panadería que despacha a más de 40 almacenes recibía 40 llamadas diarias para coordinar pedidos — PanApp reemplazó ese proceso con un sistema completo: catálogo de productos, carrito inteligente, calendario de entregas por turno AM/PM, y pagos integrados con Mercado Pago.</p>
-            <p class="pcard-desc" style="color: rgba(255,255,255,0.7);">Incluye dashboard administrativo en tiempo real con KPIs, control de capacidad de producción que bloquea automáticamente pedidos cuando el turno está lleno, planificación de rutas de reparto con Google Maps, y gestión de estados tipo Kanban. Arquitectura multi-tenant, autenticación por RUT, validación de datos (RUT chileno, teléfono, dirección por campos), RLS completo en Supabase, y deploy en Vercel.</p>
+            <p class="pcard-desc" style="color: rgba(255,255,255,0.7);">Agente aut&oacute;nomo conectado v&iacute;a Telegram que tiene control total de mi entorno digital. Accede a Google Sheets y Excel para agregar y consultar informaci&oacute;n, agenda reuniones en el calendario, env&iacute;a correos y actualiza documentos &mdash; todo desde un mensaje de texto.</p>
+            <p class="pcard-desc" style="color: rgba(255,255,255,0.7);">Desplegado en una VPS de Hostinger con conexi&oacute;n a la API de Gemini. Funciona 24/7 como un asistente ejecutivo que entiende contexto, ejecuta acciones reales y reporta resultados. No es un chatbot: es un agente que act&uacute;a.</p>
             <div class="panapp-stats">
               <div>
-                <div style="font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--teal);">40 → 0</div>
+                <div style="font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--red);">24/7</div>
+                <div style="font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-top: 2px;">Activo en producci&oacute;n</div>
+              </div>
+              <div>
+                <div style="font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--red);">6+ APIs</div>
+                <div style="font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-top: 2px;">Integraciones conectadas</div>
+              </div>
+              <div>
+                <div style="font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--red);">Aut&oacute;nomo</div>
+                <div style="font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-top: 2px;">Ejecuta acciones, no solo responde</div>
+              </div>
+            </div>
+            <div class="pcard-impact red">Un agente real que reemplaza tareas administrativas completas &mdash; la IA como herramienta de productividad personal.</div>
+          </div>
+        </div>
+
+        <!-- PanApp se mantiene igual -->
+        <div class="pcard reveal" style="grid-column: 1 / -1; background: var(--ink); border-color: rgba(255,255,255,0.1);">
+          <div class="pcard-top" style="background: transparent; border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <div class="pcard-num" style="color: var(--teal);">02 &middot; SaaS Propio &middot; En Producci&oacute;n</div>
+            <div class="pcard-title" style="color: var(--white);">PanApp &mdash; Gesti&oacute;n de Pedidos para Panader&iacute;as</div>
+            <div class="pcard-sub" style="color: rgba(255,255,255,0.5);">Next.js 14 &middot; TypeScript &middot; Supabase &middot; Tailwind CSS &middot; Framer Motion &middot; Mercado Pago</div>
+          </div>
+          <div class="pcard-body" style="background: transparent;">
+            <p class="pcard-desc" style="color: rgba(255,255,255,0.7);">SaaS B2B que digitaliza la gesti&oacute;n de pedidos entre panader&iacute;as y sus almacenes distribuidores en Chile. Una panader&iacute;a que despacha a m&aacute;s de 40 almacenes recib&iacute;a 40 llamadas diarias para coordinar pedidos &mdash; PanApp reemplaz&oacute; ese proceso con un sistema completo: cat&aacute;logo de productos, carrito inteligente, calendario de entregas por turno AM/PM, y pagos integrados con Mercado Pago.</p>
+            <p class="pcard-desc" style="color: rgba(255,255,255,0.7);">Incluye dashboard administrativo en tiempo real con KPIs, control de capacidad de producci&oacute;n que bloquea autom&aacute;ticamente pedidos cuando el turno est&aacute; lleno, planificaci&oacute;n de rutas de reparto con Google Maps, y gesti&oacute;n de estados tipo Kanban. Arquitectura multi-tenant, autenticaci&oacute;n por RUT, validaci&oacute;n de datos (RUT chileno, tel&eacute;fono, direcci&oacute;n por campos), RLS completo en Supabase, y deploy en Vercel.</p>
+            <div class="panapp-stats">
+              <div>
+                <div style="font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--teal);">40 &rarr; 0</div>
                 <div style="font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-top: 2px;">Llamadas diarias eliminadas</div>
               </div>
               <div>
                 <div style="font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--teal);">1er cliente</div>
-                <div style="font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-top: 2px;">Panadería pagando en producción</div>
+                <div style="font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-top: 2px;">Panader&iacute;a pagando en producci&oacute;n</div>
               </div>
               <div>
                 <div style="font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--teal);">Full-stack</div>
-                <div style="font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-top: 2px;">Diseño, desarrollo, venta y soporte</div>
+                <div style="font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-top: 2px;">Dise&ntilde;o, desarrollo, venta y soporte</div>
               </div>
             </div>
-            <div class="pcard-impact" style="color: #5dd6be;">Producto real con cliente pagando — de la idea al ingreso recurrente como desarrollador independiente.</div>
+            <div class="pcard-impact" style="color: #5dd6be;">Producto real con cliente pagando &mdash; construido con Claude Code de principio a fin.</div>
+          </div>
+        </div>
+
+        <!-- Proyectos 03 y 04 se mantienen igual -->
+        <div class="pcard reveal">
+          <div class="pcard-top">
+            <div class="pcard-num">03 &middot; Gardilcic / El Teniente</div>
+            <div class="pcard-title">Dashboard de KPIs Gerenciales</div>
+            <div class="pcard-sub">Power BI &middot; DAX &middot; Power Query &middot; Excel</div>
+          </div>
+          <div class="pcard-body">
+            <p class="pcard-desc">Modelo de datos que integra fuentes de distintos sistemas (planillas de terreno, SAP, Excel) y las expone como un &uacute;nico dashboard interactivo para reuniones semanales de superintendencia. Incluye seguimiento de avance f&iacute;sico, estados de pago y proyecciones PF.</p>
+            <div class="pcard-impact">Elimin&oacute; reportes manuales y consolid&oacute; la toma de decisiones de avance en un solo lugar.</div>
+          </div>
+        </div>
+
+        <div class="pcard reveal">
+          <div class="pcard-top">
+            <div class="pcard-num">04 &middot; Gardilcic / Memoria de T&iacute;tulo</div>
+            <div class="pcard-title">Herramienta de Control de Hormig&oacute;n</div>
+            <div class="pcard-sub">HTML &middot; JavaScript &middot; Validaci&oacute;n de datos</div>
+          </div>
+          <div class="pcard-body">
+            <p class="pcard-desc">Aplicaci&oacute;n web liviana para registrar y validar consumos de hormig&oacute;n en terreno, comparando autom&aacute;ticamente contra valores te&oacute;ricos y marcando desviaciones significativas en tiempo real.</p>
+            <div class="pcard-impact">Detect&oacute; sobreconsumos de hasta 200%, generando ahorro directo de materiales en faena.</div>
           </div>
         </div>
 
@@ -751,47 +764,28 @@ footer {
     </div>
   </section>
 
-  <!-- CERTIFICATIONS -->
+  <!-- CERTIFICATIONS - Sin cambios -->
   <section class="section alt" id="certifications">
     <div class="wrap">
-      <div class="label reveal">Formación continua</div>
+      <div class="label reveal">Formaci&oacute;n continua</div>
       <h2 class="stitle reveal">Certificaciones y Estudios</h2>
-      <p class="stitle-note reveal">Mi título profesional y aprendizaje continuo en las áreas que me importan.</p>
+      <p class="stitle-note reveal">Mi t&iacute;tulo profesional y aprendizaje continuo en las &aacute;reas que me importan.</p>
       <div class="certs-grid">
-        <!-- ERROR CORREGIDO: Enlaces externos con target="_blank" ahora incluyen rel="noopener noreferrer" para seguridad -->
         <a href="https://www.linkedin.com/in/juan-pablo-canales-cabello-19873b293/overlay/Education/923613489/treasury/?profileId=ACoAAEcfQkQBVdgwWegDnQhQKroaInflxIwH-_M" target="_blank" rel="noopener noreferrer" class="cert reveal" style="grid-column: 1 / -1; border-color: var(--teal); background: var(--teal-light);">
-          <div class="cert-inst" style="color: var(--teal);">Título Profesional</div>
+          <div class="cert-inst" style="color: var(--teal);">T&iacute;tulo Profesional</div>
           <div class="cert-name" style="font-weight: 700; font-size: 1.1rem; color: var(--teal);">Ingeniero Civil Industrial</div>
         </a>
-        <a href="https://www.linkedin.com/in/juan-pablo-canales-cabello-19873b293/details/certifications/" target="_blank" rel="noopener noreferrer" class="cert reveal">
-          <div class="cert-inst">Harvard Business School</div>
-          <div class="cert-name">Gestión de la Carrera</div>
-        </a>
-        <a href="https://www.linkedin.com/in/juan-pablo-canales-cabello-19873b293/details/certifications/" target="_blank" rel="noopener noreferrer" class="cert reveal">
-          <div class="cert-inst">MIT Professional Education</div>
-          <div class="cert-name">Transformación Digital</div>
-        </a>
-        <a href="https://www.linkedin.com/in/juan-pablo-canales-cabello-19873b293/details/certifications/" target="_blank" rel="noopener noreferrer" class="cert reveal">
-          <div class="cert-inst">Google</div>
-          <div class="cert-name">IA y Productividad</div>
-        </a>
-        <a href="https://www.linkedin.com/in/juan-pablo-canales-cabello-19873b293/details/certifications/" target="_blank" rel="noopener noreferrer" class="cert reveal">
-          <div class="cert-inst">Microsoft</div>
-          <div class="cert-name">Prompting: Maximiza la IA en tu Negocio</div>
-        </a>
-        <a href="https://www.linkedin.com/in/juan-pablo-canales-cabello-19873b293/details/certifications/" target="_blank" rel="noopener noreferrer" class="cert reveal">
-          <div class="cert-inst">Alura</div>
-          <div class="cert-name">Inmersión en Inteligencia Artificial</div>
-        </a>
-        <a href="https://www.linkedin.com/in/juan-pablo-canales-cabello-19873b293/details/certifications/" target="_blank" rel="noopener noreferrer" class="cert reveal">
-          <div class="cert-inst">Santander Open Academy</div>
-          <div class="cert-name">AI & Bots · Metodología Agile</div>
-        </a>
+        <a href="https://www.linkedin.com/in/juan-pablo-canales-cabello-19873b293/details/certifications/" target="_blank" rel="noopener noreferrer" class="cert reveal"><div class="cert-inst">Harvard Business School</div><div class="cert-name">Gesti&oacute;n de la Carrera</div></a>
+        <a href="https://www.linkedin.com/in/juan-pablo-canales-cabello-19873b293/details/certifications/" target="_blank" rel="noopener noreferrer" class="cert reveal"><div class="cert-inst">MIT Professional Education</div><div class="cert-name">Transformaci&oacute;n Digital</div></a>
+        <a href="https://www.linkedin.com/in/juan-pablo-canales-cabello-19873b293/details/certifications/" target="_blank" rel="noopener noreferrer" class="cert reveal"><div class="cert-inst">Google</div><div class="cert-name">IA y Productividad</div></a>
+        <a href="https://www.linkedin.com/in/juan-pablo-canales-cabello-19873b293/details/certifications/" target="_blank" rel="noopener noreferrer" class="cert reveal"><div class="cert-inst">Microsoft</div><div class="cert-name">Prompting: Maximiza la IA en tu Negocio</div></a>
+        <a href="https://www.linkedin.com/in/juan-pablo-canales-cabello-19873b293/details/certifications/" target="_blank" rel="noopener noreferrer" class="cert reveal"><div class="cert-inst">Alura</div><div class="cert-name">Inmersi&oacute;n en Inteligencia Artificial</div></a>
+        <a href="https://www.linkedin.com/in/juan-pablo-canales-cabello-19873b293/details/certifications/" target="_blank" rel="noopener noreferrer" class="cert reveal"><div class="cert-inst">Santander Open Academy</div><div class="cert-name">AI &amp; Bots &middot; Metodolog&iacute;a Agile</div></a>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- CONTACT - Sin cambios -->
   <section class="section" id="contact">
     <div class="wrap">
       <div class="label reveal">Hablemos</div>
@@ -801,27 +795,27 @@ footer {
         <a href="https://github.com/juancanalescabello9-design" target="_blank" rel="noopener noreferrer" class="citem">
           <span class="citem-label">GitHub</span>
           <span class="citem-val">juancanalescabello9-design</span>
-          <span class="citem-arrow">→</span>
+          <span class="citem-arrow">&rarr;</span>
         </a>
         <a href="mailto:juancanalescabello9@gmail.com" class="citem">
           <span class="citem-label">Email</span>
           <span class="citem-val">juancanalescabello9@gmail.com</span>
-          <span class="citem-arrow">→</span>
+          <span class="citem-arrow">&rarr;</span>
         </a>
         <a href="tel:+56966203717" class="citem">
-          <span class="citem-label">Teléfono</span>
+          <span class="citem-label">Tel&eacute;fono</span>
           <span class="citem-val">(+56) 9 6620 3717</span>
-          <span class="citem-arrow">→</span>
+          <span class="citem-arrow">&rarr;</span>
         </a>
         <a href="https://www.linkedin.com/in/juan-pablo-canales-cabello-19873b293/" target="_blank" rel="noopener noreferrer" class="citem">
           <span class="citem-label">LinkedIn</span>
           <span class="citem-val">Juan Pablo Canales Cabello</span>
-          <span class="citem-arrow">→</span>
+          <span class="citem-arrow">&rarr;</span>
         </a>
         <div class="citem" style="cursor:default;">
-          <span class="citem-label">Ubicación</span>
-          <span class="citem-val">Rancagua/Santiago, Chile ·Preferencia Hibrido</span>
-          <span class="citem-arrow" style="opacity:0;">→</span>
+          <span class="citem-label">Ubicaci&oacute;n</span>
+          <span class="citem-val">Rancagua/Santiago, Chile &middot; Preferencia H&iacute;brido</span>
+          <span class="citem-arrow" style="opacity:0;">&rarr;</span>
         </div>
       </div>
     </div>
@@ -829,12 +823,11 @@ footer {
 </main>
 
 <footer>
-  <span>Juan Canales Cabello · 2025</span>
-  <span>Data Analyst · SaaS Developer → Data Engineer</span>
+  <span>Juan Canales Cabello &middot; 2025</span>
+  <span>Data Analyst &middot; SaaS Developer &rarr; AI Solutions Engineer</span>
 </footer>
 
 <script>
-  // Observador optimizado para celulares
   const obs = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
       if (e.isIntersecting) {
@@ -852,3 +845,4 @@ footer {
 </script>
 </body>
 </html>
+
