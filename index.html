@@ -6,6 +6,7 @@
 <title>Juan Pablo Canales — Product Engineer</title>
 <meta name="description" content="Portafolio de Juan Pablo Canales, Ingeniero Civil Industrial y Product Engineer especializado en automatizaci&oacute;n, inteligencia artificial aplicada y datos para resultados de negocio.">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&amp;family=Literata:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js');</script>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -35,6 +36,108 @@ body {
   width: 100%;
 }
 
+body.intro-active { overflow: hidden; }
+
+/* ─── INTRO ─── */
+.intro {
+  position: fixed; inset: 0; z-index: 1000;
+  display: none; place-items: center;
+  overflow: hidden;
+  background: #101010;
+  color: var(--white);
+  isolation: isolate;
+}
+.js .intro { display: grid; }
+.intro::before,
+.intro::after {
+  content: '';
+  position: absolute; inset: -30%;
+  pointer-events: none;
+}
+.intro::before {
+  background:
+    radial-gradient(circle at 28% 35%, rgba(13,124,102,0.24), transparent 26%),
+    radial-gradient(circle at 72% 62%, rgba(201,123,42,0.16), transparent 24%);
+  animation: intro-orbit 3s ease-in-out both;
+}
+.intro::after {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(circle, #000 10%, transparent 68%);
+  opacity: 0.55;
+}
+.intro-inner {
+  position: relative; z-index: 2;
+  width: min(860px, calc(100% - 48px));
+}
+.intro-kicker {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 20px;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: #66d8c1;
+  opacity: 0;
+  animation: intro-up 0.55s 0.12s ease forwards;
+}
+.intro-kicker::before { content: ''; width: 34px; height: 1px; background: currentColor; }
+.intro-name {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(3.2rem, 10vw, 8.2rem);
+  font-weight: 800; line-height: 0.84;
+  letter-spacing: -0.055em;
+}
+.intro-name span { display: block; overflow: hidden; }
+.intro-name i {
+  display: block; font-style: normal;
+  transform: translateY(115%);
+  animation: intro-name 0.7s cubic-bezier(.16,1,.3,1) forwards;
+}
+.intro-name span:nth-child(2) i {
+  color: rgba(255,255,255,0.4);
+  animation-delay: 0.12s;
+}
+.intro-tagline {
+  max-width: 570px;
+  margin-top: 30px;
+  font-size: clamp(0.95rem, 2vw, 1.2rem);
+  color: rgba(255,255,255,0.62);
+  opacity: 0;
+  animation: intro-up 0.55s 0.46s ease forwards;
+}
+.intro-counter {
+  position: absolute; right: 32px; bottom: 24px;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.68rem; letter-spacing: 0.16em;
+  color: rgba(255,255,255,0.35);
+}
+.intro-skip {
+  position: absolute; top: 24px; right: 28px; z-index: 3;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 999px; padding: 8px 14px;
+  background: transparent; color: rgba(255,255,255,0.7);
+  font: 600 0.66rem/1 'Syne', sans-serif;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  cursor: pointer; transition: border-color .2s, color .2s, background .2s;
+}
+.intro-skip:hover { color: white; border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.06); }
+.intro.is-leaving { animation: intro-leave .72s cubic-bezier(.76,0,.24,1) forwards; }
+.intro.is-hidden { display: none; }
+.intro-active .hero-eyebrow,
+.intro-active .hero-title,
+.intro-active .hero-bio,
+.intro-active .hero-bottom { animation-play-state: paused; }
+
+.scroll-progress {
+  position: fixed; top: 0; left: 0; z-index: 110;
+  width: 100%; height: 3px;
+  transform: scaleX(0); transform-origin: left;
+  background: linear-gradient(90deg, var(--teal), #5dd6be, var(--amber));
+  pointer-events: none;
+}
+
 /* ─── NAV ─── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 99;
@@ -58,6 +161,7 @@ nav {
   transition: color 0.2s;
 }
 .nav-links a:hover { color: var(--teal); }
+.nav-links a.active { color: var(--teal); }
 
 /* ─── HERO ─── */
 .hero {
@@ -70,7 +174,7 @@ nav {
 .hero-bg-text {
   position: absolute;
   top: 50%; left: -20px;
-  transform: translateY(-50%);
+  transform: translate3d(var(--drift-x, 0), calc(-50% + var(--drift-y, 0)), 0);
   font-family: 'Syne', sans-serif;
   font-size: clamp(120px, 18vw, 220px);
   font-weight: 800;
@@ -80,6 +184,7 @@ nav {
   pointer-events: none;
   user-select: none;
   letter-spacing: -0.04em;
+  transition: transform .15s linear;
 }
 .hero-eyebrow {
   font-family: 'Syne', sans-serif;
@@ -168,12 +273,21 @@ h1.hero-title em {
   border: 1px solid var(--teal);
   display: inline-block;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 .hero-cta:hover {
   background: #0f8e75;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(13, 124, 102, 0.4);
 }
+.hero-cta::after {
+  content: ''; position: absolute; inset: -2px;
+  background: linear-gradient(110deg, transparent 25%, rgba(255,255,255,.22) 45%, transparent 65%);
+  transform: translateX(-130%); transition: transform .55s ease;
+  pointer-events: none;
+}
+.hero-cta:hover::after { transform: translateX(130%); }
 
 .hero-cta.secondary {
   background: transparent;
@@ -322,9 +436,18 @@ h2.stitle {
 .pcard {
   border: 1px solid var(--rule); border-radius: 12px;
   overflow: hidden;
+  position: relative;
+  --mx: 50%; --my: 50%;
   transition: box-shadow 0.25s, transform 0.2s;
 }
 .pcard:hover { box-shadow: 0 8px 40px rgba(0,0,0,0.08); transform: translateY(-3px); }
+.pcard::after {
+  content: ''; position: absolute; inset: 0; z-index: 3;
+  background: radial-gradient(360px circle at var(--mx) var(--my), rgba(13,124,102,0.11), transparent 58%);
+  opacity: 0; pointer-events: none; transition: opacity .3s ease;
+}
+.pcard:hover::after { opacity: 1; }
+.pcard > * { position: relative; z-index: 4; }
 .pcard-top {
   padding: 28px 28px 24px;
   border-bottom: 1px solid var(--rule);
@@ -460,11 +583,42 @@ footer {
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+@keyframes intro-name { to { transform: translateY(0); } }
+@keyframes intro-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes intro-orbit {
+  0% { transform: scale(.75) rotate(-4deg); opacity: .25; }
+  55% { opacity: 1; }
+  100% { transform: scale(1.05) rotate(3deg); opacity: .75; }
+}
+@keyframes intro-leave {
+  0% { clip-path: inset(0 0 0 0); }
+  100% { clip-path: inset(0 0 100% 0); visibility: hidden; }
+}
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.in { opacity: 1; transform: none; }
 
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .intro { display: none !important; }
+  body.intro-active { overflow: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+
 /* ─── RESPONSIVE ─── */
 @media (max-width: 860px) {
+  .intro-inner { width: min(100% - 36px, 680px); }
+  .intro-name { font-size: clamp(2.9rem, 14vw, 5rem); line-height: .9; }
+  .intro-tagline { margin-top: 22px; }
+  .intro-counter { right: 20px; bottom: 18px; }
+  .intro-skip { top: 18px; right: 18px; }
   .hero { padding: 100px 24px 48px; }
   h1.hero-title { font-size: clamp(2.5rem, 10vw, 4rem); }
   .hero-bottom { gap: 24px; }
@@ -483,7 +637,22 @@ footer {
 }
 </style>
 </head>
-<body>
+<body class="intro-active">
+
+<div class="intro" id="site-intro" role="presentation" aria-hidden="true">
+  <button class="intro-skip" type="button">Omitir</button>
+  <div class="intro-inner">
+    <div class="intro-kicker">Ingenier&iacute;a &middot; Producto &middot; Impacto</div>
+    <div class="intro-name">
+      <span><i>Juan Pablo</i></span>
+      <span><i>Canales Cabello</i></span>
+    </div>
+    <p class="intro-tagline">Transformo procesos complejos en productos digitales que generan resultados medibles.</p>
+  </div>
+  <div class="intro-counter">PRODUCT ENGINEER &middot; 2026</div>
+</div>
+
+<div class="scroll-progress" aria-hidden="true"></div>
 
 <nav>
   <div class="nav-name">Juan Pablo Canales</div>
@@ -1019,20 +1188,106 @@ footer {
 </footer>
 
 <script>
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach((e) => {
-      if (e.isIntersecting) {
-        e.target.classList.add('in');
-        obs.unobserve(e.target);
-      }
-    });
-  }, {
-    threshold: 0.05
-  });
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const intro = document.querySelector('#site-intro');
+  let introSeen = false;
+  try { introSeen = sessionStorage.getItem('jpc-intro-seen') === '1'; } catch (_) {}
 
-  document.querySelectorAll('.reveal').forEach((el) => {
-    obs.observe(el);
-  });
+  const finishIntro = (immediate = false) => {
+    if (!intro || intro.classList.contains('is-hidden')) return;
+    if (immediate) {
+      intro.classList.add('is-hidden');
+      document.body.classList.remove('intro-active');
+      return;
+    }
+    intro.classList.add('is-leaving');
+    window.setTimeout(() => {
+      intro.classList.add('is-hidden');
+      document.body.classList.remove('intro-active');
+    }, 720);
+    try { sessionStorage.setItem('jpc-intro-seen', '1'); } catch (_) {}
+  };
+
+  if (reduceMotion || introSeen) {
+    finishIntro(true);
+  } else {
+    window.setTimeout(() => finishIntro(), 2400);
+    intro.querySelector('.intro-skip')?.addEventListener('click', () => finishIntro());
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') finishIntro();
+    }, { once: true });
+  }
+
+  const revealItems = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -24px' });
+
+    revealItems.forEach((element, index) => {
+      element.style.transitionDelay = `${Math.min(index % 5, 4) * 45}ms`;
+      revealObserver.observe(element);
+    });
+  } else {
+    revealItems.forEach((element) => element.classList.add('in'));
+  }
+
+  const progress = document.querySelector('.scroll-progress');
+  const navLinks = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+  const sections = navLinks
+    .map((link) => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+  let scrollFrame = null;
+
+  const updatePageMotion = () => {
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const ratio = maxScroll > 0 ? Math.min(window.scrollY / maxScroll, 1) : 0;
+    progress.style.transform = `scaleX(${ratio})`;
+
+    let currentId = '';
+    sections.forEach((section) => {
+      if (section.getBoundingClientRect().top <= 150) currentId = section.id;
+    });
+    navLinks.forEach((link) => {
+      link.classList.toggle('active', link.getAttribute('href') === `#${currentId}`);
+    });
+    scrollFrame = null;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (!scrollFrame) scrollFrame = requestAnimationFrame(updatePageMotion);
+  }, { passive: true });
+  window.addEventListener('resize', updatePageMotion, { passive: true });
+  updatePageMotion();
+
+  if (!reduceMotion && window.matchMedia('(pointer: fine)').matches) {
+    const hero = document.querySelector('.hero');
+    const heroWord = document.querySelector('.hero-bg-text');
+    hero?.addEventListener('pointermove', (event) => {
+      const rect = hero.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width - 0.5) * 22;
+      const y = ((event.clientY - rect.top) / rect.height - 0.5) * 16;
+      heroWord.style.setProperty('--drift-x', `${x}px`);
+      heroWord.style.setProperty('--drift-y', `${y}px`);
+    });
+    hero?.addEventListener('pointerleave', () => {
+      heroWord.style.setProperty('--drift-x', '0px');
+      heroWord.style.setProperty('--drift-y', '0px');
+    });
+
+    document.querySelectorAll('.pcard').forEach((card) => {
+      card.addEventListener('pointermove', (event) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${event.clientX - rect.left}px`);
+        card.style.setProperty('--my', `${event.clientY - rect.top}px`);
+      });
+    });
+  }
 </script>
 </body>
 </html>
