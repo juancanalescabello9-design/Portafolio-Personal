@@ -38,9 +38,10 @@ T1|x|reescribir metadatos + intro + hero alrededor de liderazgo, datos, impacto|
 T2|x|convertir competencias en capacidades de liderazgo, negocio y datos; relegar stack|V3,V4,V6,V10,I.nav
 T3|x|reestructurar experiencia + proyectos con narrativa de decisiones y valor|V2,V3,V4,V5,V10,I.web
 T4|x|alinear navegación + formación + contacto + `README.md`; conservar interfaces|V7,V8,I.asset,I.doc,I.nav
-T5|.|validar HTML, anclas, enlaces, responsive, accesibilidad básica y movimiento reducido|V8,V9,I.web
+T5|~|validar HTML, anclas, enlaces, responsive, accesibilidad básica y movimiento reducido|V8,V9,I.web
 
 §B
 
 id|date|cause|fix
 B1|2026-09-25|verificador esperaba `&mdash;`; fuente usa `—`|corregir literal de prueba
+B2|2026-09-25|verificador asumió breakpoint `768px`; fuente usa `860px`|validar breakpoint existente + viewport real
