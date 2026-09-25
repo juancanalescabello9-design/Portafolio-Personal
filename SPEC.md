@@ -34,7 +34,7 @@ V10: ⊥ nuevas cifras, credenciales o alcances no presentes en fuente actual
 §T
 
 id|status|task|cites
-T1|~|reescribir metadatos + intro + hero alrededor de liderazgo, datos, impacto|V1,V2,V3,V7,V10,I.web
+T1|x|reescribir metadatos + intro + hero alrededor de liderazgo, datos, impacto|V1,V2,V3,V7,V10,I.web
 T2|.|convertir competencias en capacidades de liderazgo, negocio y datos; relegar stack|V3,V4,V6,V10,I.nav
 T3|.|reestructurar experiencia + proyectos con narrativa de decisiones y valor|V2,V3,V4,V5,V10,I.web
 T4|.|alinear navegación + formación + contacto + `README.md`; conservar interfaces|V7,V8,I.asset,I.doc,I.nav
