@@ -1,8 +1,9 @@
 # Portafolio personal de Juan Pablo Canales
 
-Product Engineer e Ingeniero Civil Industrial. Portafolio de productos digitales,
-automatización, inteligencia artificial aplicada y datos orientados a resultados
-de negocio.
+Ingeniero Civil Industrial enfocado en liderar iniciativas, convertir datos en
+decisiones y generar valor de negocio. Este portafolio presenta resultados en
+minería, logística, agroindustria, finanzas y operaciones; la tecnología aparece
+como herramienta para mejorar procesos, trazabilidad y autonomía.
 
 Sitio publicado con GitHub Pages:
 https://juancanalescabello9-design.github.io/Portafolio-Personal/
