@@ -503,6 +503,11 @@ h2.stitle {
   box-shadow: 0 12px 32px rgba(0,0,0,0.35);
   margin-bottom: 18px;
 }
+.rag-shots {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px;
+  margin: 18px 0;
+}
+.rag-shots .pcard-shot { margin: 0; border-color: var(--rule); box-shadow: 0 8px 22px rgba(0,0,0,0.12); }
 
 /* ─── CERTS ─── */
 .certs-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
@@ -637,6 +642,7 @@ footer {
   .wrap { padding: 0 24px; }
   .section { padding: 64px 0; }
   .pcard-top, .pcard-body { padding: 20px; }
+  .rag-shots { grid-template-columns: 1fr; }
   footer { flex-direction: column; gap: 12px; align-items: flex-start; padding: 24px 24px; }
   .contact-row .citem-label { width: 90px; font-size: 0.62rem; }
   .panapp-stats > div { text-align: left; width: 100%; margin-bottom: 8px; }
@@ -996,6 +1002,10 @@ footer {
           <div class="pcard-body">
             <p class="pcard-desc">Diseñé una plataforma para ordenar la revisión de documentos entre analista, revisor senior, jefatura y gerencia. Cada avance conserva responsable, plazo, versión, comentario y decisión, para que el estado de una revisión sea visible y verificable.</p>
             <p class="pcard-desc">Incorporé un RAG cerrado para trabajar con datos sensibles: consulta únicamente documentos aprobados y su versión final, bajo control de acceso. Esto permite encontrar antecedentes relevantes sin mezclar información no validada ni depender de búsquedas abiertas.</p>
+            <div class="rag-shots">
+              <img class="pcard-shot" src="assets/rag-cerrado-tablero.png" alt="Tablero de flujo documental con etapas de revisión y documentos demo">
+              <img class="pcard-shot" src="assets/rag-cerrado-base-conocimiento.png" alt="Base de conocimiento cerrada con documento demo aprobado">
+            </div>
             <div class="panapp-stats">
               <div><div style="font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--teal);">4 etapas</div><div style="font-size:0.72rem;color:var(--ink-light);margin-top:2px;">Revisión con responsables definidos</div></div>
               <div><div style="font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--teal);">Trazable</div><div style="font-size:0.72rem;color:var(--ink-light);margin-top:2px;">Decisiones y versiones verificables</div></div>
