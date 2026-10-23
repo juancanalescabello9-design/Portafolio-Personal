@@ -1041,6 +1041,31 @@ footer {
           </div>
         </div>
 
+        <!-- Control de materiales -->
+        <div class="pcard reveal" style="grid-column: 1 / -1;">
+          <div class="pcard-top">
+            <div class="pcard-num">Trazabilidad de inventario &middot; Prize / Abastecimiento</div>
+            <div class="pcard-title">Control de materiales: stock que cuadra y diferencias con responsable</div>
+            <div class="pcard-sub">React &middot; TypeScript &middot; Hono &middot; PostgreSQL &middot; Drizzle ORM</div>
+          </div>
+          <div class="pcard-body">
+            <p class="pcard-desc">La bodega de insumos de packing operaba con un prototipo donde la lógica corría en el navegador y el último en guardar sobrescribía el stock. Rediseñé el proceso completo —recepción, control de calidad, estiba, seguimiento de órdenes de compra y pedidos a packing— con la base de datos como única fuente de verdad.</p>
+            <p class="pcard-desc">Cada movimiento queda en un kardex inmutable con responsable; una diferencia abre una incidencia en vez de regularizarse en silencio, y las tolerancias, la cuarentena y la salida FIFO/FEFO se configuran por familia de insumo. React, Hono y PostgreSQL habilitan esa trazabilidad.</p>
+            <div class="rag-shots">
+              <img class="pcard-shot" src="assets/materiales-recepciones.png" alt="Listado de recepciones por guía de despacho con datos demo" loading="lazy">
+              <img class="pcard-shot" src="assets/materiales-calidad.png" alt="Bandeja de control de calidad con lotes demo en cuarentena" loading="lazy">
+              <img class="pcard-shot" src="assets/materiales-mapa.png" alt="Mapa operativo de bodega con racks, carriles y ocupación" loading="lazy">
+              <img class="pcard-shot" src="assets/materiales-inventario.png" alt="Inventario con disponible, reservado y cuarentena por producto" loading="lazy">
+            </div>
+            <div class="panapp-stats">
+              <div><div style="font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--teal);">6 módulos</div><div style="font-size:0.72rem;color:var(--ink-light);margin-top:2px;">De la recepción al packing</div></div>
+              <div><div style="font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--teal);">Inmutable</div><div style="font-size:0.72rem;color:var(--ink-light);margin-top:2px;">Kardex con responsable por movimiento</div></div>
+              <div><div style="font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--teal);">FIFO/FEFO</div><div style="font-size:0.72rem;color:var(--ink-light);margin-top:2px;">Reglas de salida por familia de insumo</div></div>
+            </div>
+            <div class="pcard-impact">Reemplaza un prototipo frágil por un sistema transaccional donde el stock cuadra y cada diferencia tiene responsable.</div>
+          </div>
+        </div>
+
         <!-- Logística regional y cadena de frío -->
         <div class="pcard reveal" style="grid-column: 1 / -1;">
           <div class="pcard-top">
